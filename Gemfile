@@ -9,12 +9,13 @@ end
 ruby '2.5.0'
 
 # basic
-gem 'rails',      '5.1.6'
-gem 'puma',       '3.9.1'
-gem 'mysql2',     '0.5.2'
-gem 'uglifier',   '3.2.0'
-gem 'turbolinks', '5.0.1'
-gem 'jbuilder',   '2.7.0'
+gem 'rails',       '5.1.6'
+gem 'puma',        '3.9.1'
+gem 'mysql2',      '0.5.2'
+gem 'uglifier',    '3.2.0'
+gem 'turbolinks',  '5.0.1'
+gem 'jbuilder',    '2.7.0'
+gem 'friendly_id', '5.2.4'
 
 # css
 gem 'bootstrap',                 '4.1.3'
