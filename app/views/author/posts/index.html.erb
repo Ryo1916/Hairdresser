@@ -2,6 +2,11 @@
 <% provide(:author, 'active') %>
 
 <div class="row">
-  <%# post.each記法の省略形 %>
-  <%= render @posts%>
+  <table class="table table-striped ">
+    <tr>
+      <th colspan="4">Title</th>
+    </tr>
+    <%# post.each記法の省略形 %>
+    <%= render @posts%>
+  </table>
 </div>
