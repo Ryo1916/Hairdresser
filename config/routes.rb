@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'posts#index'
-
+  root to: 'blog/posts#index'
 
   scope module: 'blog' do
     get 'about' => 'pages#about', as: :about
