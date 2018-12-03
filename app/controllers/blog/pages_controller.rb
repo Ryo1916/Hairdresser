@@ -1,5 +1,5 @@
 module Blog
-  class PagesController < ApplicationController
+  class PagesController < BlogController
     def about
     end
 

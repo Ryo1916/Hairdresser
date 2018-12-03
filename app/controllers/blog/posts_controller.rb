@@ -1,6 +1,5 @@
 module Blog
-  
-  class PostsController < InheritedResources::Base
+  class PostsController < BlogController
     before_action :set_post, only: [:show, :edit, :update, :destroy]
 
     # GET /posts
