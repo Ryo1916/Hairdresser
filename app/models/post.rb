@@ -1,4 +1,8 @@
 class Post < ApplicationRecord
+
+  # association
+  belongs_to :author
+
   extend FriendlyId
   friendly_id :title, use: :slugged
 

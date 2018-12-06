@@ -3,4 +3,8 @@ class Author < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  # association
+  has_many :posts
+
 end
