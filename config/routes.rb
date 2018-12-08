@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'blog/posts#index'
 
   # namespace: URLとcontrollerの両方とも指定のパスになる
-  namespace :author do
+  namespace :authors do
     resources :posts
   end
 
