@@ -23,7 +23,8 @@
 
   <div class="field">
     <%= form.label :body %>
-    <%= form.text_area :body, id: :post_body %>
+    <%= form.text_area :body, :class => "tinymce", id: :post_body %>
+    <%= tinymce %>
   </div>
 
   <div class="field">

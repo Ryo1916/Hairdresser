@@ -23,7 +23,7 @@ gem 'sass-rails',                '5.0.6'
 gem 'will_paginate',             '3.1.6'
 gem 'bootstrap-will_paginate',   '1.0.0'
 gem 'font-awesome-rails',        '4.7.0.4'
-gem 'activeadmin_froala_editor', '0.1.2'
+gem 'tinymce-rails', '4.9.1'
 
 # js
 gem 'jquery-rails', '4.3.1'
