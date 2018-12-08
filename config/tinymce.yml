@@ -1,6 +1,9 @@
 toolbar:
-  - styleselect | bold italic | undo redo | image | link
+  - styleselect | undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | image | link
 plugins:
   - image
   - link
   - table
+  - lists
+  - advlist
+  - code
