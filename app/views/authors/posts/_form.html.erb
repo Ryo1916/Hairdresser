@@ -52,12 +52,10 @@
           </li>
         </ul>
       </div>
-      <% if @post.new_record? %>
-        <%= link_to 'Back', posts_path %>
-      <% else %>
+      <% if @post.persisted? %>
         <%= link_to 'Show', @post %> |
-        <%= link_to 'Back', posts_path %>
       <% end %>
+      <%= link_to 'Back', authors_posts_path %>
     </div>
 
     <div class="col-md-8">
