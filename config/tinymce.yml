@@ -1,3 +1,5 @@
+height:
+  - 500
 toolbar:
   - styleselect | undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | image | media | link | code codesample
 plugins:
