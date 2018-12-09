@@ -1,9 +1,11 @@
 toolbar:
-  - styleselect | undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | image | link
+  - styleselect | undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | image | media | link | code codesample
 plugins:
-  - image
-  - link
-  - table
-  - lists
   - advlist
   - code
+  - codesample
+  - image
+  - link
+  - lists
+  - media
+  - table
