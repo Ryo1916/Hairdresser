@@ -24,13 +24,13 @@ module Authors
 
     # POST /posts/1/publish
     def publish
-      @post.update(published: true)
+      @post.update(published: true, published_at: Time.now)
       redirect_to authors_posts_path
     end
 
     # POST /posts/1/unpublish
     def unpublish
-      @post.update(published: false)
+      @post.update(published: false, published_at: nil)
       redirect_to authors_posts_path
     end
 
