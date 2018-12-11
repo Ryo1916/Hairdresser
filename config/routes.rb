@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   # namespace: URLとcontrollerの両方とも指定のパスになる
   namespace :authors do
     resources :posts do
-      put 'publish' => 'posts#publish'
-      put 'unpublish' => 'posts#unpublish'
+      put 'publish' => 'posts#publish', on: :member
+      put 'unpublish' => 'posts#unpublish', on: :member
     end
   end
 
