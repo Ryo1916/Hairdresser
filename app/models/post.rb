@@ -35,4 +35,12 @@ class Post < ApplicationRecord
   def display_day_published
     "Published #{published_at.strftime('%-b %-d, %Y')}"
   end
+
+  def publish
+    update(published: true, published_at: Time.now)
+  end
+
+  def unpublish
+    update(published: false, published_at: nil)
+  end
 end
