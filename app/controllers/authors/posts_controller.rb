@@ -1,6 +1,6 @@
 module Authors
   class PostsController < AuthorController
-    before_action :set_post, only: [:show, :edit, :update, :destroy]
+    before_action :set_post, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
 
     # GET /posts
     # GET /posts.json
@@ -20,6 +20,18 @@ module Authors
 
     # GET /posts/1/edit
     def edit
+    end
+
+    # POST /posts/1/publish
+    def publish
+      @post.update(published: true)
+      redirect_to authors_posts_path
+    end
+
+    # POST /posts/1/unpublish
+    def unpublish
+      @post.update(published: false)
+      redirect_to authors_posts_path
     end
 
     # POST /posts
