@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   # namespace: URLとcontrollerの両方とも指定のパスになる
   namespace :authors do
-    resources :posts
+    resources :posts do
+      put 'publish' => 'posts#publish'
+      put 'unpublish' => 'posts#unpublish'
+    end
   end
 
   # scope module: controllerのみ指定のパスになる
