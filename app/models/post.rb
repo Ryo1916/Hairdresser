@@ -16,6 +16,7 @@
 #
 
 class Post < ApplicationRecord
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
 
   # association
   belongs_to :author

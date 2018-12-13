@@ -45,6 +45,12 @@
             </div>
           </li>
           <li class="list-group-item">
+            <div class="field">
+              <%= form.label 'Tags' %>
+              <%= form.text_area :tag_list, id: :post_tag_list, class: 'form-control' %>
+            </div>
+          </li>
+          <li class="list-group-item">
             <div class="actions">
               <%= form.submit "Save blog post", class: 'btn btn-success btn-block' %>
             </div>

@@ -81,7 +81,7 @@ module Authors
       end
 
       def post_params
-        params.require(:post).permit(:title, :body, :description, :slug, :banner_image_url)
+        params.require(:post).permit(:title, :body, :description, :slug, :banner_image_url, :tag_list)
       end
   end
 
