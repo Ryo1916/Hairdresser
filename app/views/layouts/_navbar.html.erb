@@ -28,7 +28,7 @@
   </div>
 </div>
 
-<nav class="navbar navbar-light bg-faded">
+<nav class="navbar navbar-light navbar-expand-lg bg-faded">
   <div class='container'>
     <a class='navbar-brand' href='/'>
       Frog<span class='light'>blog</span>
@@ -47,11 +47,14 @@
         <%= link_to 'Contact', contact_path, class: "nav-link #{yield(:contact_active)}" %>
       </li>
       <% if author_signed_in? %>
-        <li class="nav-item">
-          <%= link_to 'My Posts', authors_posts_path, class: "nav-link #{yield(:author)}" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "nav-link logout" %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Author
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'My Posts', authors_posts_path, class: "dropdown-item #{yield(:author)}" %>
+            <%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
         </li>
       <% else %>
         <li class="nav-item">
