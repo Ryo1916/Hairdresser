@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :authors
   root to: 'blog/posts#index'
+
+  devise_for :authors
+  # author.rbにregisterable未設定のため、registrationへのルーティング追記
+  as :author do
+    get 'authors/edit' => 'authors/registrations#edit', as: :edit_user_registration
+    put 'author.:id' => 'authors/registrations#update', as: :user_registration
+  end
 
   # namespace: URLとcontrollerの両方とも指定のパスになる
   namespace :authors do
