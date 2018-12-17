@@ -5,3 +5,31 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'securerandom'
+
+Author.create!( name:                  "jimbob",
+                email:                 "jimbob@test.abc",
+                password:              "password",
+                password_confirmation: "password",
+                sign_in_count:         0 )
+
+Post.create!( title:            "How to use seeds.rb?",
+              body:             "Just watch your github and remember rails tutorial!",
+              description:      "The reason that why I forgot how to use seeds.rb...",
+              slug:             "",
+              banner_image_url: "",
+              author_id:        1,
+              published:        true,
+              published_at:     Time.zone.now )
+
+# blogs
+50.times do
+  six_digits = format("%0#{6}d", SecureRandom.random_number(10**6))
+  Post.create!( title: Faker::Lorem.sentence,
+                body: Faker::Lorem.paragraph,
+                description: Faker::Music.chord,
+                banner_image_url: "https://images.pexels.com/photos/#{six_digits}/pexels-photo-#{six_digits}.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+                author_id: 1,
+                published: true,
+                published_at: Faker::Time.between(DateTime.now - 365, DateTime.now))
+end

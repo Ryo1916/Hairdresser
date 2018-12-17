@@ -1,5 +1,5 @@
 <div class="collapse" id="exCollapsingNavbar">
-  <div class="collapse-bg p-a-1">
+  <div class="collapse-bg p-3">
     <div class='card'>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
@@ -28,10 +28,10 @@
   </div>
 </div>
 
-<nav class="navbar navbar-light bg-faded">
+<nav class="navbar navbar-light navbar-expand-lg bg-faded">
   <div class='container'>
     <a class='navbar-brand' href='/'>
-      Frog<span class='light'>blog</span>
+      A<span class='light'> Hair Dresser at Far</span> E<span class="light">ast</span>
     </a>
     <button class="navbar-toggler hidden-lg hidden-md pull-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
       &#9776;
@@ -47,11 +47,15 @@
         <%= link_to 'Contact', contact_path, class: "nav-link #{yield(:contact_active)}" %>
       </li>
       <% if author_signed_in? %>
-        <li class="nav-item">
-          <%= link_to 'My Posts', authors_posts_path, class: "nav-link #{yield(:author)}" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "nav-link logout" %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle <%= yield(:author) %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Author
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'My Posts', authors_posts_path, class: "dropdown-item" %>
+            <%= link_to 'Account', edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
         </li>
       <% else %>
         <li class="nav-item">

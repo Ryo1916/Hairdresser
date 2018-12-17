@@ -3,5 +3,7 @@
 
 <div class="row">
   <%# post.each記法の省略形 %>
-  <%= render @posts%>
+  <%= render @posts %>
 </div>
+
+<%= will_paginate @posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
