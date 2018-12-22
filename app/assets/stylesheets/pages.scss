@@ -1,3 +1,111 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// top
+
+// to expand the images full of screan
+.container-fluid {
+  padding: 0px;
+  margin-top: 20px;
+}
+
+.carousel {
+  .carousel-inner {
+    .carousel-item {
+      // Forces carousel image to be 100% width and not max width of 100%
+      .img-fluid {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+.top-images figure {
+  background-color: #1abc9c;
+}
+
+.top-images figure span {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  z-index: -1;
+  display: block;
+  width: 300px;
+  margin: 0;
+  padding: 0;
+  color: #444;
+  font-size: 18px;
+  text-decoration: none;
+  text-align: center;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  opacity: 0;
+}
+
+figure:hover+span {
+  bottom: -36px;
+  opacity: 1;
+}
+
+.top-images figure img {
+  opacity: 1;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.top-images figure:hover img {
+  opacity: .5;
+}
+
+.pages.top {
+
+  .card {
+    border: none;
+    border-radius: 0;
+    height: 400px;
+    margin-bottom: 20px;
+    background-color: white;
+    .card-topper {
+      height: 200px;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+    .card-block {
+      padding: 10px;
+      a {
+        text-decoration: none;
+      }
+      .card-title {
+        font-size: 1.3rem;
+        margin-bottom: 0;
+        a {
+          color: black;
+          text-decoration: none;
+        }
+      }
+      .tags {
+        margin-bottom: 0;
+        a {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 12px;
+        }
+      }
+      .published-date {
+        font-size: 0.8rem;
+        color: #787878;
+        font-weight: 300;
+        margin-top: 0.3rem;
+        margin-bottom: 0.3rem;
+      }
+      .card-text {
+        font-size: 0.9rem;
+        color: black;
+      }
+
+    }
+  }
+
+}
