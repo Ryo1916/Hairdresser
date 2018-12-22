@@ -4,7 +4,7 @@ module Blog
     # GET /posts
     # GET /posts.json
     def index
-      @posts = Post.published.list_for(params[:page], params[:tag])
+      @posts = Post.published.list_for_blog(params[:page], params[:tag])
     end
 
     # GET /posts/1

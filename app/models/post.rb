@@ -22,12 +22,15 @@ class Post < ApplicationRecord
   belongs_to :author
 
   # scopes
-  PER_PAGE = 24
   scope :published, -> { where(published: true) }
-  scope :list_for, -> (page, tag) do
+  scope :list_for_top, -> (page, tag) do
+    paginated_post(page).with_tag(tag)
+  end
+  scope :list_for_blog, -> (page, tag) do
     recent_paginated_post(page).with_tag(tag)
   end
-  scope :recent_paginated_post, -> (page) { most_recent.paginate(page: page, per_page: PER_PAGE) }
+  scope :paginated_post, -> (page) { most_recent.paginate(page: page, per_page: 6) }
+  scope :recent_paginated_post, -> (page) { most_recent.paginate(page: page, per_page: 24) }
   scope :most_recent, -> { order(published_at: :desc) }
   scope :with_tag, -> (tag) { tagged_with(tag) if tag.present? }
 
