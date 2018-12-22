@@ -22,12 +22,12 @@ gem 'mysql2',   '0.5.2'
 gem 'annotate', '2.7.4'
 
 # css
-gem 'bootstrap',                 '4.1.3'
-gem 'sass-rails',                '5.0.6'
-gem 'will_paginate',             '3.1.6'
-gem 'bootstrap-will_paginate',   '1.0.0'
-gem 'font-awesome-rails',        '4.7.0.4'
-gem 'tinymce-rails', '4.9.1'
+gem 'bootstrap',               '4.1.3'
+gem 'sass-rails',              '5.0.6'
+gem 'will_paginate',           '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
+gem 'font-awesome-sass',       '5.6.1'
+gem 'tinymce-rails',           '4.9.1'
 
 # js
 gem 'jquery-rails', '4.3.1'
