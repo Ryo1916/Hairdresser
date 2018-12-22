@@ -19,10 +19,11 @@
 
 .navbar {
     border-radius: 0;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
     background-color: $primary-color;
     .navbar-brand {
         font-weight: bolder;
+        font-family: 'Playfair Display', serif;
         color: $accent-color;
         .light {
             font-weight: 300;
@@ -33,10 +34,14 @@
         outline: none;
     }
     .nav-link {
+      font-family: 'Playfair Display', serif;
       color: $primary-color-light !important;
       &.active {
         color: $primary-color-text !important;
       }
+    }
+    .dropdown-item {
+        font-family: 'Playfair Display', serif;
     }
     .nav-item.author-nav {
       img {
