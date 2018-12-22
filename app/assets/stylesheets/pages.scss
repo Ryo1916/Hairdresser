@@ -60,16 +60,15 @@ figure:hover+span {
 }
 
 .pages.top {
-
   .card {
-    border: none;
-    border-radius: 0;
+    border-radius: 10;
     height: 400px;
     margin-bottom: 20px;
     background-color: white;
     .card-topper {
       height: 200px;
       width: 100%;
+      border-radius: 10;
       background-size: cover;
       background-position: center;
     }
