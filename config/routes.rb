@@ -22,10 +22,8 @@ Rails.application.routes.draw do
   # scope module: controllerのみ指定のパスになる
   scope module: 'blog' do
     get 'top' => 'pages#top', as: :top
-    get 'about' => 'pages#about', as: :about
-    get 'contact' => 'pages#contact', as: :contact
     get 'posts' => 'posts#index', as: :posts
     get 'posts/:id' => 'posts#show', as: :post
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end
