@@ -21,16 +21,18 @@
 $(document).ready(function(){
 
   // hide .navbar first
-  $(".navbar").hide();
+  $(".navbar").addClass("navbar-background-top");
 
   // fade in .navbar
   $(function () {
     $(window).scroll(function () {
       // set distance user needs to scroll before we start fadeIn
-      if ($(this).scrollTop() > 10) {
-        $('.navbar').fadeIn("slow", "swing");
+      if ($(this).scrollTop() > 150) {
+        $('.navbar').removeClass("navbar-background-top");
+        $('.navbar').addClass("navbar-background");
       } else {
-        $('.navbar').fadeOut("slow", "swing");
+        $('.navbar').removeClass("navbar-background");
+        $('.navbar').addClass("navbar-background-top");
       }
     });
   });
