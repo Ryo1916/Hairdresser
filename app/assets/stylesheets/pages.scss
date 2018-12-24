@@ -18,6 +18,10 @@
         width: 100%;
         height: auto;
       }
+      .carousel-caption {
+        top: 20%;
+        bottom: auto;
+      }
     }
   }
 }
@@ -126,4 +130,38 @@ figure:hover+span {
   padding: 0;
   height: 100%;
   width: 100%;
+}
+
+
+footer {
+  background-color:black;
+  text-align:center;
+
+  a {
+    color: #666;
+    background-color: black;
+    text-decoration: none;
+
+    &:hover {
+      background-color: black;
+    }
+  }
+
+  span {
+    margin-right: 10px;
+  }
+
+  .footer-top {
+    padding-top: 20px;
+  }
+
+  .footer-middle {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+
+  .footer-bottom {
+    padding: 10px 0;
+    text-align: center;
+  }
 }
