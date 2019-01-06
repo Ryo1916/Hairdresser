@@ -66,6 +66,8 @@ group :development do
   gem 'better_errors',         '2.5.0'
   gem 'binding_of_caller',     '0.8.0'
   gem 'pry-byebug',            '3.6.0'
+  gem 'pry-rails',             '0.3.9'
+  gem 'pry-doc',               '1.0.0'
 end
 
 group :test do
