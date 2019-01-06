@@ -48,7 +48,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: FrogBlog_production
-  username: FrogBlog
+  adapter: postgresql
+  encoding: unicode
+  database: Hairdresser_production
+  username: Hairdresser
+  url: <%= ENV['DATABASE_URL'] %>
   password: <%= ENV['FROGBLOG_DATABASE_PASSWORD'] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
