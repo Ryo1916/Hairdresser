@@ -1,4 +1,4 @@
-# Blog by rails
+# Hairdresser's blog by rails
 
 * Ruby: 2.5.0
 
