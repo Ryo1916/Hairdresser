@@ -3,13 +3,16 @@
     <div class='card'>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
+          <%= link_to 'My works', "#", class: "nav-link #{yield(:myworks_active)}" %>
+        </li>
+        <li class="list-group-item">
           <%= link_to 'Blog', posts_path, class: "nav-link #{yield(:blog_active)}" %>
         </li>
         <li class="list-group-item">
-          <%= link_to 'About', about_path, class: "nav-link #{yield(:about_active)}" %>
+          <%= link_to 'My studios', "#", class: "nav-link #{yield(:mystudios_active)}" %>
         </li>
         <li class="list-group-item">
-          <%= link_to 'Contact', contact_path, class: "nav-link #{yield(:contact_active)}" %>
+          <%= link_to 'Contact', "#", class: "nav-link #{yield(:contact_active)}" %>
         </li>
         <% if author_signed_in? %>
           <li class="list-group-item">
@@ -28,40 +31,47 @@
   </div>
 </div>
 
-<nav class="navbar navbar-light navbar-expand-lg fixed-top">
-  <div class='container'>
-    <a class='navbar-brand' href='/'>
-      H<span class='light'>airdresser's</span> W<span class="light">ebsite</span>
-    </a>
-    <button class="navbar-toggler hidden-lg hidden-md pull-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
-      &#9776;
-    </button>
-    <ul class="nav navbar-nav pull-sm-right hidden-xs-down">
-      <li class="nav-item">
-        <%= link_to 'Blog', posts_path, class: "nav-link #{yield(:blog_active)}" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'About', about_path, class: "nav-link #{yield(:about_active)}" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Contact', contact_path, class: "nav-link #{yield(:contact_active)}" %>
-      </li>
-      <% if author_signed_in? %>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle <%= yield(:author) %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Author
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to 'My Posts', authors_posts_path, class: "dropdown-item" %>
-            <%= link_to 'Account', edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
+<% if current_page?(root_path) %>
+  <nav class="navbar navbar-light navbar-expand-lg fixed-top">
+<% else %>
+  <nav class="navbar navbar-light navbar-expand-lg sticky-top" style="background-color:#000000;">
+<% end %>
+    <div class='container'>
+      <a class='navbar-brand' href='/'>
+        H<span class='light'>airdresser's</span> W<span class="light">ebsite</span>
+      </a>
+      <button class="navbar-toggler hidden-lg hidden-md pull-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+        &#9776;
+      </button>
+      <ul class="nav navbar-nav pull-sm-right hidden-xs-down">
         <li class="nav-item">
-          <%= link_to 'Login', new_author_session_path, class: "nav-link #{yield(:author)}" %>
+          <%= link_to 'My works', "#", class: "nav-link #{yield(:myworks_active)}" %>
         </li>
-      <% end %>
-    </ul>
-  </div>
-</nav>
+        <li class="nav-item">
+          <%= link_to 'Blogs', posts_path, class: "nav-link #{yield(:blog_active)}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'My studios', "#", class: "nav-link #{yield(:mystudios_active)}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Contact', "#", class: "nav-link #{yield(:contact_active)}" %>
+        </li>
+        <% if author_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle <%= yield(:author) %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Author
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'My Posts', authors_posts_path, class: "dropdown-item" %>
+              <%= link_to 'Account', edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Login', new_author_session_path, class: "nav-link #{yield(:author)}" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
