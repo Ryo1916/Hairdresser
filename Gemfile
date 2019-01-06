@@ -17,10 +17,6 @@ gem 'jbuilder',            '2.7.0'
 gem 'friendly_id',         '5.2.4'
 gem 'acts-as-taggable-on', '6.0'
 
-# db
-gem 'mysql2',   '0.5.2'
-gem 'annotate', '2.7.4'
-
 # css
 gem 'bootstrap',               '4.1.3'
 gem 'sass-rails',              '5.0.6'
@@ -54,7 +50,8 @@ gem 'faker',     '1.7.3'
 gem 'rails-erd', '1.5.2'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.13'
+  gem 'mysql2',   '0.5.2'
+  gem 'annotate', '2.7.4'
   gem 'byebug',  '10.0', platform: :mri
 end
 
