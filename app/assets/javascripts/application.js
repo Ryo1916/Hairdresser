@@ -17,3 +17,23 @@
 //= require tinymce-jquery
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+
+  // add .navbar-background-top first
+  $(".navbar").addClass("navbar-background-top");
+
+  // change background-color
+  $(function () {
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 150) {
+        $('.navbar').removeClass("navbar-background-top");
+        $('.navbar').addClass("navbar-background");
+      } else {
+        $('.navbar').removeClass("navbar-background");
+        $('.navbar').addClass("navbar-background-top");
+      }
+    });
+  });
+
+});

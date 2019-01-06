@@ -1,6 +1,7 @@
 <tr>
   <td> <%= link_to post.title, authors_post_path(post) %> </td>
-  <td> <%= post.created_at.strftime('%-b %-d, %Y') %> </td>
+  <td> <%= post.published_at.strftime('%Y %-b %-d %T') %> </td>
+  <td> <%= post.created_at.strftime('%Y %-b %-d') %> </td>
   <% if post.published? %>
     <td><%= link_to 'Unpublish', unpublish_authors_post_path(post), method: :put, class: 'btn btn-sm btn-primary' %></td>
   <% else %>

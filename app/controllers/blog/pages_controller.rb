@@ -1,9 +1,8 @@
 module Blog
   class PagesController < BlogController
-    def about
+    def top
+      @posts = Post.published.list_for_top(params[:page], params[:tag])
     end
-
-    def contact
-    end
+    
   end
 end

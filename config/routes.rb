@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'blog/posts#index'
+  root to: 'blog/pages#top'
 
   devise_for :authors
   # author.rbにregisterable未設定のため、registrationへのルーティング追記
@@ -21,10 +21,9 @@ Rails.application.routes.draw do
 
   # scope module: controllerのみ指定のパスになる
   scope module: 'blog' do
-    get 'about' => 'pages#about', as: :about
-    get 'contact' => 'pages#contact', as: :contact
+    get 'top' => 'pages#top', as: :top
     get 'posts' => 'posts#index', as: :posts
     get 'posts/:id' => 'posts#show', as: :post
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end

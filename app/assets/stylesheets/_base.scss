@@ -15,11 +15,13 @@ h6 {
   font-weight: light;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
+h1, h2, h3, h4, h5, h6, footer {
+  // font-family: 'Montserrat', sans-serif;
+  font-family: 'Playfair Display', serif;
 }
 
 p, p span {
-  font-family: 'Merriweather', serif !important;
+  // font-family: 'Merriweather', serif !important;
+  font-family: 'Playfair Display', serif;
   font-size: 20px;
 }
