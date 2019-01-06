@@ -20,13 +20,12 @@
 
 $(document).ready(function(){
 
-  // hide .navbar first
+  // add .navbar-background-top first
   $(".navbar").addClass("navbar-background-top");
 
-  // fade in .navbar
+  // change background-color
   $(function () {
     $(window).scroll(function () {
-      // set distance user needs to scroll before we start fadeIn
       if ($(this).scrollTop() > 150) {
         $('.navbar').removeClass("navbar-background-top");
         $('.navbar').addClass("navbar-background");
