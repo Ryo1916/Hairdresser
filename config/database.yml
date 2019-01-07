@@ -50,6 +50,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
+  url: <%= ENV['DATABASE_URL'] %>
   database: Hairdresser_production
   username: Hairdresser
   password: <%= ENV['FROGBLOG_DATABASE_PASSWORD'] %>
