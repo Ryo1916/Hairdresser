@@ -25,9 +25,18 @@ module Hairdresser
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    # Don't generate system test files.
-    config.generators.system_tests = nil
+    # Don't generate routes, system test files, stylesheets, javascripts.
+    config.generators do |g|
+      g.skip_routes false
+      g.stylesheets false
+      g.javascripts false
+      g.system_tests false
+    end
 
+    # Use encrypted secrets at each environments
+    config.read_encrypted_secrets = true
+
+    # TODO: if below line is not related to heroku, it can be deleted
     config.assets.initialize_on_precompile = false
   end
 end
