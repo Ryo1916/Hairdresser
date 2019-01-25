@@ -49,10 +49,22 @@ gem 'letter_opener_web', '1.3.4'
 gem 'faker',     '1.7.3'
 gem 'rails-erd', '1.5.2'
 
+
 group :development, :test do
   gem 'mysql2',   '0.5.2'
   gem 'annotate', '2.7.4'
   gem 'byebug',  '10.0', platform: :mri
+  gem 'capybara',                 '~> 2.13'
+  gem 'selenium-webdriver',       '3.141.0'
+  gem 'chromedriver-helper',      '2.1.0'
+  gem 'rspec-rails',              '3.8.1'
+  gem 'rails-controller-testing', '1.0.4'
+  gem 'factory_bot_rails',        '4.11.1'
+  gem 'shoulda-matchers',         '3.1.2'
+  gem 'database_cleaner',         '1.7.0'
+  gem 'simplecov',                '0.16.1'
+  gem 'test-queue',               '0.4.2'
+  gem 'guard',                    '2.13.0'
 end
 
 group :development do
@@ -65,13 +77,6 @@ group :development do
   gem 'pry-byebug',            '3.6.0'
   gem 'pry-rails',             '0.3.9'
   gem 'pry-doc',               '1.0.0'
-end
-
-group :test do
-  gem 'rails-controller-testing', '1.0.2'
-  gem 'minitest-reporters',       '1.1.14'
-  gem 'guard',                    '2.13.0'
-  gem 'guard-minitest',           '2.4.4'
 end
 
 group :production do
