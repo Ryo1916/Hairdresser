@@ -65,5 +65,16 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 
-
 # End of https://www.gitignore.io/api/rails
+
+
+### macOS ###
+# General
+.DS_Store
+
+### JetBrains ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, A
+.idea
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key
