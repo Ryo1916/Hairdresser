@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: posts
@@ -23,16 +25,16 @@ class Post < ApplicationRecord
 
   # scopes
   scope :published, -> { where(published: true) }
-  scope :list_for_top, -> (page, tag) do
+  scope :list_for_top, lambda { |page, tag|
     paginated_post(page).with_tag(tag)
-  end
-  scope :list_for_blog, -> (page, tag) do
+  }
+  scope :list_for_blog, lambda { |page, tag|
     recent_paginated_post(page).with_tag(tag)
-  end
-  scope :paginated_post, -> (page) { most_recent.paginate(page: page, per_page: 6) }
-  scope :recent_paginated_post, -> (page) { most_recent.paginate(page: page, per_page: 24) }
+  }
+  scope :paginated_post, ->(page) { most_recent.paginate(page: page, per_page: 6) }
+  scope :recent_paginated_post, ->(page) { most_recent.paginate(page: page, per_page: 24) }
   scope :most_recent, -> { order(published_at: :desc) }
-  scope :with_tag, -> (tag) { tagged_with(tag) if tag.present? }
+  scope :with_tag, ->(tag) { tagged_with(tag) if tag.present? }
 
   # Friendly ID gem
   extend FriendlyId
@@ -47,7 +49,7 @@ class Post < ApplicationRecord
     if published_at.present?
       "Published #{published_at.strftime('%-b %-d, %Y')}"
     else
-      "Not published yet."
+      'Not published yet.'
     end
   end
 

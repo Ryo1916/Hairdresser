@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root to: 'blog/pages#top'
 
@@ -25,5 +27,4 @@ Rails.application.routes.draw do
     get 'posts' => 'posts#index', as: :posts
     get 'posts/:id' => 'posts#show', as: :post
   end
-
 end

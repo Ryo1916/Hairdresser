@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Blog
   class PostsController < BlogController
-
     # GET /posts
     # GET /posts.json
     def index
@@ -13,7 +14,5 @@ module Blog
       @post = Post.friendly.find(params[:id])
       @post.published ? @post : redirect_to(posts_path)
     end
-
   end
-
 end

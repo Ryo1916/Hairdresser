@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: authors
@@ -25,5 +27,4 @@ class Author < ApplicationRecord
 
   # association
   has_many :posts
-
 end
