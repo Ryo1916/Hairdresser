@@ -77,6 +77,7 @@ group :development do
   gem 'pry-byebug',            '3.6.0'
   gem 'pry-rails',             '0.3.9'
   gem 'pry-doc',               '1.0.0'
+  gem 'rubocop',               '0.62.0'
 end
 
 group :production do

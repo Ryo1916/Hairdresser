@@ -1,0 +1,29 @@
+# This is the configuration used to check the rubocop source code.
+
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+  TargetRubyVersion: 2.5
+
+# head comments at class and module
+Documentation:
+  Enabled: false
+
+# Japanese comment
+Style/AsciiComments:
+  Enabled: false
+
+# Line length
+Metrics/LineLength:
+  Max: 120
+
+# Block length
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'config/**/*'
