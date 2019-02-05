@@ -27,4 +27,11 @@ class Author < ApplicationRecord
 
   # association
   has_many :posts
+
+  # validations
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  validates_presence_of :name, uniqueness: true, length: { maximum: 50 }
+  validates_presence_of :email, length: { maximum: 255 },
+                                format: { with: VALID_EMAIL_REGEX },
+                                uniqueness: { case_sensitive: false }
 end
