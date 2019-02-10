@@ -2,34 +2,31 @@
   <div class="row footer-top">
     <div class="col-md-12">
     <% if author_signed_in? %>
-      <span><a href="/posts">Home</a></span>
+      <span style="margin-right:10px"><a href="/posts">Home</a></span>
     <% else %>
-      <span><a href="/">Home</a></span>
+      <span style="margin-right:10px"><a href="/">Home</a></span>
     <% end %>
-      <span><a href="#">About</a></span>
+      <span style="margin-right:10px"><a href="#">About</a></span>
       <span><a href="#">Contact</a></span>
     </div>
   </div>
 
   <div class="row footer-middle">
     <div class="col-md-12">
-      <span style="margin-right:30px;">
+      <span style="margin-right:40px;">
         <%= icon('fab', 'facebook') %>
       </span>
-      <span style="margin-right:30px;">
+      <span style="margin-right:40px;">
         <%= icon('fab', 'twitter') %>
       </span>
-      <span style="margin-right:30px;">
+      <span style="margin-right:40px;">
         <%= icon('fab', 'instagram') %>
       </span>
-      <span style="margin-right:30px;">
+      <span style="margin-right:40px;">
         <%= icon('fab', 'youtube') %>
       </span>
-      <span style="margin-right:30px;">
+      <span>
         <%= icon('fab', 'line') %>
-      </span>
-      <span style="margin-right:30px;">
-        <%= icon('fab', 'linkedin') %>
       </span>
     </div>
   </div>
