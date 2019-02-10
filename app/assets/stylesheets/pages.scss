@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// delete right side weird space
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 // to expand the images full of screan
 .container-fluid {
   padding: 0px;
@@ -193,10 +199,6 @@ footer {
     &:hover {
       background-color: black;
     }
-  }
-
-  span {
-    margin-right: 10px;
   }
 
   .footer-top {
