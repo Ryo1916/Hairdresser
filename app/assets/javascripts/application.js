@@ -14,7 +14,6 @@
 //= require popper
 //= require jquery_ujs
 //= require bootstrap
-//= require tinymce-jquery
 //= require turbolinks
 //= require_tree .
 
