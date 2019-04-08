@@ -54,7 +54,7 @@ class Post < ApplicationRecord
   end
 
   def publish
-    update(published: true, published_at: Time.now)
+    update(published: true, published_at: Time.zone.now)
   end
 
   def unpublish
