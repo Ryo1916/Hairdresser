@@ -1,39 +1,16 @@
-<footer>
-  <div class="row footer-top">
+<footer class="py-4">
+  <div class="row footer-icons">
     <div class="col-md-12">
-    <% if author_signed_in? %>
-      <span style="margin-right:10px"><a href="/posts">Home</a></span>
-    <% else %>
-      <span style="margin-right:10px"><a href="/">Home</a></span>
-    <% end %>
-      <span style="margin-right:10px"><a href="#">About</a></span>
-      <span><a href="#">Contact</a></span>
+      <span class="mr-4"><%= icon('fab', 'facebook') %></span>
+      <span class="mr-4"><%= icon('fab', 'twitter') %></span>
+      <span class="mr-4"><%= icon('fab', 'instagram') %></span>
+      <span><%= icon('fab', 'youtube') %></span>
     </div>
   </div>
 
-  <div class="row footer-middle">
+  <div class="row copyright">
     <div class="col-md-12">
-      <span style="margin-right:40px;">
-        <%= icon('fab', 'facebook') %>
-      </span>
-      <span style="margin-right:40px;">
-        <%= icon('fab', 'twitter') %>
-      </span>
-      <span style="margin-right:40px;">
-        <%= icon('fab', 'instagram') %>
-      </span>
-      <span style="margin-right:40px;">
-        <%= icon('fab', 'youtube') %>
-      </span>
-      <span>
-        <%= icon('fab', 'line') %>
-      </span>
-    </div>
-  </div>
-
-  <div class="row footer-bottom">
-    <div class="col-md-12">
-      <span style="text-align:center;">© Copyright <% now = Time.current %> <%= now.year %> Your Name - All Rights Reserved</span>
+      <span class="text-center">© Copyright <%= Time.current.year %> Yuta Arita - All Rights Reserved</span>
     </div>
   </div>
 </footer>
