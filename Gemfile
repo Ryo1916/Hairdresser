@@ -59,7 +59,7 @@ group :development, :test do
   gem 'database_cleaner',         '1.7.0'
   gem 'factory_bot_rails',        '4.11.1'
   gem 'guard',                    '2.13.0'
-  gem 'mysql2', '0.5.2'
+  gem 'mysql2',                   '0.5.2'
   gem 'rails-controller-testing', '1.0.4'
   gem 'rspec-rails',              '3.8.1'
   gem 'selenium-webdriver',       '3.141.0'
