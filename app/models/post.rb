@@ -33,7 +33,7 @@ class Post < ApplicationRecord
   }
   scope :paginated_post, ->(page) { most_recent.paginate(page: page, per_page: 6) }
   scope :recent_paginated_post, ->(page) { most_recent.paginate(page: page, per_page: 24) }
-  scope :most_recent, -> { order(published_at: :desc) }
+  scope :most_recent, -> { order(created_at: :desc) }
   scope :with_tag, ->(tag) { tagged_with(tag) if tag.present? }
 
   # Friendly ID gem
