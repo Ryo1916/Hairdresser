@@ -1,9 +1,8 @@
 <% provide(:page_title, 'All Posts') %>
 <% provide(:blog_active, 'active') %>
-
 <div class="row">
-  <%# post.each記法の省略形 %>
-  <%= render @posts %>
+  <div class="col-md-12">
+    <%= render @posts %>
+  </div>
 </div>
-
 <%= will_paginate @posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
