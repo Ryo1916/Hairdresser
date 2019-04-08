@@ -13,9 +13,5 @@ module Authors
     def configure_account_update_params
       devise_parameter_sanitizer.permit(:account_update, keys: [:name])
     end
-
-    def after_update_path_for(resource)
-      edit_user_registration_path(resource)
-    end
   end
 end
