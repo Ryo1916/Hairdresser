@@ -12,23 +12,22 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <h3 style="text-align:center; margin:20px 0px;">
-        Your Name
+        <%= @author.name %>
       </h3>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-3 offset-md-3" style="text-align:center;">
-      <span style="font-size: 4rem;">
-        <%= icon('fas', 'mobile-alt') %>
+      <span style="">
+        <%= image_tag('LINE@_APP_typeA.png', class: 'img-fluid', id: 'line_at_logo', alt: 'Responsive image') %>
       </span>
-      <p>xxx-xxxx-xxx</p>
     </div>
     <div class="col-md-3" style="text-align:center;">
-      <span style="text-align:center; font-size: 4rem;">
+      <span style="font-size: 4rem;">
         <%= icon('fas', 'envelope') %>
       </span>
-      <p>feedback@startbootstrap.com</p>
+      <p><%= @author.email %></p>
     </div>
   </div>
 

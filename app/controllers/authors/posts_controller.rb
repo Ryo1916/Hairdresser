@@ -3,6 +3,7 @@
 module Authors
   class PostsController < AuthorController
     before_action :set_post, only: %i[show edit update destroy publish unpublish]
+    before_action :set_author, only: %i[index show new edit]
 
     # GET /posts
     # GET /posts.json
@@ -74,6 +75,10 @@ module Authors
     end
 
     private
+
+    def set_author
+      @author = current_author
+    end
 
     def set_post
       @post = current_author.posts.friendly.find(params[:id])
