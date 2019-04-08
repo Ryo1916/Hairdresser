@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/PerfectlyNormal/tinymce-rails-imageupload.git
+  revision: 61317d624dc56f9da47cd95809ebb6f6f0638d87
+  specs:
+    tinymce-rails-imageupload (4.0.17.beta.3)
+      railties (>= 3.2, < 6)
+      tinymce-rails (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -636,6 +644,7 @@ DEPENDENCIES
   spring-watcher-listen (= 2.0.1)
   test-queue (= 0.4.2)
   tinymce-rails (= 4.9.1)
+  tinymce-rails-imageupload!
   turbolinks (= 5.0.1)
   tzinfo-data
   uglifier (= 3.2.0)
