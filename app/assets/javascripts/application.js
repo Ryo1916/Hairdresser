@@ -26,7 +26,7 @@ $(document).ready(function(){
   // change background-color
   $(function () {
     $(window).scroll(function () {
-      if ($(this).scrollTop() > 150) {
+      if ($(this).scrollTop() > 800) {
         $('.navbar').removeClass("navbar-background-top");
         $('.navbar').addClass("navbar-background");
       } else {
