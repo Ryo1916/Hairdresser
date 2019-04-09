@@ -1,17 +1,19 @@
 <% provide(:page_title, 'All Posts') %>
 <% provide(:author, 'active') %>
-
-<div class="row" style="margin:0px 20px;">
-  <div style="margin-bottom:20px;">
-    <%= link_to 'New post', new_authors_post_path, class: 'btn btn-primary btn-lg' %>
+<div class="row">
+  <%#= render 'sidebar' %>
+  <div class="col-12 mt-3">
+    <div class="mb-3">
+      <%= link_to 'New post', new_authors_post_path, class: 'btn btn-primary btn-lg' %>
+    </div>
+    <table class="table table-striped">
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Categories</th>
+        <th colspan="5">Date</th>
+      </tr>
+      <%= render @posts%>
+    </table>
   </div>
-  <table class="table table-striped">
-    <tr>
-      <th>Title</th>
-      <th>Published at</th>
-      <th colspan="4">Created at</th>
-    </tr>
-    <%# post.each記法の省略形 %>
-    <%= render @posts%>
-  </table>
 </div>

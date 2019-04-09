@@ -1,21 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= full_title(yield(:page_title)) %></title>
-    <%= csrf_meta_tags %>
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700|Montserrat:300,400,500,700|Playfair+Display:400,700" rel="stylesheet">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'shared/head' %>
   </head>
 
   <body>
     <%= render 'layouts/navbar' %>
 
-    <% if current_page?(root_path) %>
-    <div class="container-fluid <%= controller_name %> <%= action_name %>" style="margin-top:0;">
-    <% else %>
-    <div class="container-fluid <%= controller_name %> <%= action_name %>">
-    <% end %>
+    <div class="container-fluid <%= controller_name %> <%= action_name %>" style="<%= 'margin-top:0;' if current_page?(root_path) %>">
       <%= yield %>
     </div>
   </body>

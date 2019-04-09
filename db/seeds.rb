@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'securerandom'
 
-Author.create!( name:                  "jimbob",
-                email:                 "jimbob@test.abc",
+Author.create!( name:                  "yuta arita",
+                email:                 "yuta@test.abc",
                 password:              "password",
                 password_confirmation: "password",
                 sign_in_count:         0 )

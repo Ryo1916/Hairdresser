@@ -1,7 +1,7 @@
 height:
   - 500
 toolbar:
-  - styleselect | undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | image | media | link | code codesample
+  - styleselect | undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | uploadimage | media | link | code codesample
 plugins:
   - advlist
   - code
@@ -11,3 +11,5 @@ plugins:
   - lists
   - media
   - table
+  - uploadimage
+uploadeimage: true

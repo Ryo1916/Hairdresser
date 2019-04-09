@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= full_title(yield(:page_title)) %></title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-    <%= render 'shared/rails_default' %>
-    <%= tinymce_assets %>
+    <%= render 'shared/head' %>
   </head>
 
   <body>
@@ -17,11 +14,7 @@
       <p class="alert alert-danger" role="alert" style="text-align:center; margin-bottom:0px;"><%= alert %></p>
     <% end %>
 
-    <% if current_page?(root_path) %>
-    <div class="container-fluid <%= controller_name %> <%= action_name %>" style="margin-top:0;">
-    <% else %>
-    <div class="container-fluid <%= controller_name %> <%= action_name %>">
-    <% end %>
+    <div class="container-fluid <%= controller_name %> <%= action_name %> mt-0">
       <%= yield %>
     </div>
   </body>

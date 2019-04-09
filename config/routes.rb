@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   root to: 'blog/pages#top'
 
+  # 管理者ログイン／ログアウト用ルーティング
   devise_for :authors
   # author.rbにregisterable未設定のため、registrationへのルーティング追記
   as :author do
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
     put 'author/:id' => 'authors/registrations#update', as: :user_registration
   end
 
-  # namespace: URLとcontrollerの両方とも指定のパスになる
+  # 管理者用投稿ページ
   namespace :authors do
     resources :posts do
       # memberでpostsの7つのリソースに以下2つを追加
@@ -19,9 +20,10 @@ Rails.application.routes.draw do
         put 'unpublish' => 'posts#unpublish'
       end
     end
+    post '/tinymce_assets' => 'tinymce_assets#create'
   end
 
-  # scope module: controllerのみ指定のパスになる
+  # 閲覧者用ルーティング
   scope module: 'blog' do
     get 'top' => 'pages#top', as: :top
     get 'posts' => 'posts#index', as: :posts

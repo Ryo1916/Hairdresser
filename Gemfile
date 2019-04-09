@@ -24,8 +24,11 @@ gem 'bootstrap',               '4.1.3'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'font-awesome-sass',       '5.6.1'
 gem 'sass-rails',              '5.0.6'
-gem 'tinymce-rails',           '4.9.1'
 gem 'will_paginate',           '3.1.6'
+
+# wysiwyg
+gem 'tinymce-rails',             '4.9.1'
+gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupload'
 
 # js
 gem 'coffee-rails', '4.2.2'
@@ -59,7 +62,7 @@ group :development, :test do
   gem 'database_cleaner',         '1.7.0'
   gem 'factory_bot_rails',        '4.11.1'
   gem 'guard',                    '2.13.0'
-  gem 'mysql2', '0.5.2'
+  gem 'mysql2',                   '0.5.2'
   gem 'rails-controller-testing', '1.0.4'
   gem 'rspec-rails',              '3.8.1'
   gem 'selenium-webdriver',       '3.141.0'
