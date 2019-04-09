@@ -68,8 +68,7 @@
 
     <div class="col-md-8">
       <%= form.text_area :body, class: :tinymce, id: :post_body %>
-      <%= tinymce %>
+      <%= tinymce uploadimage_form_url: '/authors/tinymce_assets', relative_urls: false %>
     </div>
   </div>
-
 <% end %>
