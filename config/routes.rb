@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         put 'unpublish' => 'posts#unpublish'
       end
     end
+    post '/tinymce_assets' => 'tinymce_assets#create'
   end
 
   # 閲覧者用ルーティング
