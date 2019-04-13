@@ -4,17 +4,15 @@
 #
 # Table name: posts
 #
-#  id               :bigint(8)        not null, primary key
-#  title            :string(255)
-#  body             :text(65535)
-#  description      :text(65535)
-#  slug             :string(255)
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  banner_image_url :string(255)
-#  author_id        :integer
-#  published        :boolean          default(FALSE)
-#  published_at     :datetime
+#  id           :bigint(8)        not null, primary key
+#  title        :string(255)
+#  body         :text(65535)
+#  slug         :string(255)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  author_id    :integer
+#  published    :boolean          default(FALSE)
+#  published_at :datetime
 #
 
 class Post < ApplicationRecord
