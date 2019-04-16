@@ -58,4 +58,12 @@ class Post < ApplicationRecord
   def unpublish
     update(published: false, published_at: nil)
   end
+
+  def next
+    Post.published.where('published_at > ?', published_at).order('published_at ASC').first
+  end
+
+  def previous
+    Post.published.where('published_at < ?', published_at).order('published_at DESC').first
+  end
 end
