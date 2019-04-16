@@ -37,6 +37,12 @@
   .dropdown-item {
     font-family: 'Playfair Display', serif;
   }
+}
+
+// To display sns icons oneline for smart phone
+@media screen and (max-width: 375px) {
+  .navbar .navbar-nav li {
+    padding-left: 15px;
   }
 }
 
