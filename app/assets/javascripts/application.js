@@ -13,7 +13,7 @@ $(document).ready(function(){
   // change background-color
   $(function () {
     $(window).scroll(function () {
-      if ($(this).scrollTop() > 800) {
+      if ($(this).scrollTop() > $('#movie').height()) {
         $('.navbar').removeClass("navbar-background-top");
         $('.navbar').addClass("navbar-background");
       } else {
