@@ -22,37 +22,29 @@
     </div>
   </div>
   <div class="row my-4">
-    <div class="col-md-4">
-      <div class="card" style="margin-bottom: 10px;">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <div class="field">
-              <%= form.label :title %>
-              <%= form.text_field :title, id: :post_title, class: 'form-control' %>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <div class="field">
-              <%= form.label 'Tags' %>
-              <%= form.text_field :tag_list, id: :post_tag_list, class: 'form-control' %>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <div class="actions">
-              <%= form.submit "Save blog post", class: 'btn btn-success btn-block' %>
-            </div>
-          </li>
-        </ul>
+    <div class="col-md-8 offset-md-2">
+      <div class="form-group">
+        <div class="field">
+          <%= form.label :title %>
+          <%= form.text_field :title, id: :post_title, class: 'form-control', placeholder: "Enter post title" %>
+        </div>
+        <div class="field">
+          <%= form.label 'Category' %><span>(Separate by commas if you want to add multiple categories)</span>
+          <%#= form.collection_select :tag_list, ActsAsTaggableOn::Tag.all, :name, :name, mutiple: true, include_blank: true %>
+          <%= form.text_field :tag_list, id: :post_tag_list, class: 'form-control', placeholder: "Enter the categories" %>
+        </div>
+        <div class="field my-4">
+          <%= form.text_area :body, class: :tinymce, id: :post_body %>
+          <%= tinymce uploadimage_form_url: '/authors/tinymce_assets', relative_urls: false, uploadimage_default_img_class: 'img-fluid' %>
+        </div>
+        <div class="actions">
+          <%= form.submit "Save blog post", class: 'btn btn-success' %>
+        </div>
+        <% if @post.persisted? %>
+          <%= link_to 'Show', authors_post_path(@post) %> |
+        <% end %>
+        <%= link_to 'Back', authors_posts_path %>
       </div>
-      <% if @post.persisted? %>
-        <%= link_to 'Show', @post %> |
-      <% end %>
-      <%= link_to 'Back', authors_posts_path %>
-    </div>
-
-    <div class="col-md-8">
-      <%= form.text_area :body, class: :tinymce, id: :post_body %>
-      <%= tinymce uploadimage_form_url: '/authors/tinymce_assets', relative_urls: false %>
     </div>
   </div>
 <% end %>
