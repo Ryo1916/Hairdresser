@@ -1,17 +1,14 @@
 <%= form_with(model: post, local: true, url: url) do |form| %>
-
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
       <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
   <div class="row my-4">
     <div class="col-md-6 offset-md-3">
       <% if @post.new_record? %>
@@ -24,7 +21,6 @@
       <% end %>
     </div>
   </div>
-
   <div class="row my-4">
     <div class="col-md-4">
       <div class="card" style="margin-bottom: 10px;">
