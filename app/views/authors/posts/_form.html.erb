@@ -28,10 +28,17 @@
           <%= form.label :title %>
           <%= form.text_field :title, id: :post_title, class: 'form-control', placeholder: "Enter post title" %>
         </div>
-        <div class="field">
-          <%= form.label 'Category' %><span>(Separate by commas if you want to add multiple categories)</span>
-          <%#= form.collection_select :tag_list, ActsAsTaggableOn::Tag.all, :name, :name, mutiple: true, include_blank: true %>
-          <%= form.text_field :tag_list, id: :post_tag_list, class: 'form-control', placeholder: "Enter the categories" %>
+        <div class="field my-3">
+          <%= form.label 'Category' %>
+          <div class="categories">
+            <%= form.collection_check_boxes(:tag_list, tags, :name, :name) do |tag| %>
+              <%= tag.label do %>
+                <%= tag.check_box(class: "check_box") %>
+                <%= tag.value %>
+              <% end %>
+            <% end %>
+          </div>
+          <%#= form.text_field :tag_list, id: :post_tag_list, class: 'form-control', placeholder: "Enter the categories" %>
         </div>
         <div class="field my-3">
           <%= form.text_area :body, class: :tinymce, id: :post_body %>
