@@ -14,6 +14,7 @@ ruby '2.5.0'
 gem 'acts-as-taggable-on', '6.0'
 gem 'friendly_id',         '5.2.4'
 gem 'jbuilder',            '2.7.0'
+gem 'pg',                  '1.1.3'
 gem 'puma',                '3.9.1'
 gem 'rails',               '5.1.6'
 gem 'turbolinks',          '5.0.1'
@@ -62,7 +63,6 @@ group :development, :test do
   gem 'database_cleaner',         '1.7.0'
   gem 'factory_bot_rails',        '4.11.1'
   gem 'guard',                    '2.13.0'
-  gem 'mysql2',                   '0.5.2'
   gem 'rails-controller-testing', '1.0.4'
   gem 'rspec-rails',              '3.8.1'
   gem 'selenium-webdriver',       '3.141.0'
@@ -87,7 +87,6 @@ end
 
 group :production do
   gem 'fog', '1.42'
-  gem 'pg',  '1.1.3'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
