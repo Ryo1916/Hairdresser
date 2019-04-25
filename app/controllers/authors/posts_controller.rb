@@ -2,11 +2,14 @@
 
 module Authors
   class PostsController < AuthorController
+    include Common
+
     before_action :set_post, only: %i[show edit update destroy publish unpublish]
     before_action :set_author, only: %i[index show new edit]
+    before_action :set_tags, only: %i[new edit]
 
     def index
-      @posts = current_author.posts.most_recent
+      @posts = current_author.posts.paginated_post(params[:page])
     end
 
     def show; end
@@ -64,16 +67,12 @@ module Authors
 
     private
 
-    def set_author
-      @author = current_author
-    end
-
     def set_post
       @post = current_author.posts.friendly.find(params[:id])
     end
 
     def post_params
-      params.require(:post).permit(:title, :body, :description, :slug, :banner_image_url, :tag_list)
+      params.require(:post).permit(:title, :body, :slug, tag_list: [])
     end
   end
 end

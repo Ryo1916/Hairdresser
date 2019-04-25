@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     edit_author_registration_path(resource)
   end
 
-  def after_sign_out_path_for
+  def after_sign_out_path_for(_resource)
     new_author_session_path
   end
 end

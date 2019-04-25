@@ -2,6 +2,8 @@
 
 module Blog
   class PostsController < BlogController
+    include Common
+
     before_action :set_author, only: %i[index show]
 
     def index
@@ -10,13 +12,7 @@ module Blog
 
     def show
       @post = Post.friendly.find(params[:id])
-      @post.published ? @post : redirect_to(posts_path)
-    end
-
-    private
-
-    def set_author
-      @author = current_author
+      @post.published ? @post : redirect_to(posts_path, flash: { alert: 'This post is not published.' })
     end
   end
 end

@@ -120,17 +120,15 @@
 .pages.top {
   .card {
     border-radius: 10;
-    height: 350px;
     margin-bottom: 20px;
     background-color: $primary-color-text;
     .card-topper {
       height: 200px;
       width: 100%;
-      border-radius: 10;
       background-size: cover;
       background-position: center;
     }
-    .card-block {
+    .card-body {
       padding: 10px;
       a {
         text-decoration: none;

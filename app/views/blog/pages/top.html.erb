@@ -7,14 +7,14 @@
 <!-- My works -->
 <%#= render 'myworks' %>
 
-<!-- Daily / Blogs -->
-<%= render 'daily' %>
+<!-- Blogs -->
+<%= render 'recent_posts', posts: @posts %>
 
 <!-- Categories -->
 <%#= render 'categories' %>
 
 <!-- About -->
-<%= render 'about' %>
+<%= render 'about', author: @author %>
 
 <!-- Maps -->
 <%#= render 'maps' %>

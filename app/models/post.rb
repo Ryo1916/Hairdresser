@@ -4,17 +4,15 @@
 #
 # Table name: posts
 #
-#  id               :bigint(8)        not null, primary key
-#  title            :string(255)
-#  body             :text(65535)
-#  description      :text(65535)
-#  slug             :string(255)
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  banner_image_url :string(255)
-#  author_id        :integer
-#  published        :boolean          default(FALSE)
-#  published_at     :datetime
+#  id           :bigint(8)        not null, primary key
+#  title        :string(255)
+#  body         :text(65535)
+#  slug         :string(255)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  author_id    :integer
+#  published    :boolean          default(FALSE)
+#  published_at :datetime
 #
 
 class Post < ApplicationRecord
@@ -25,16 +23,16 @@ class Post < ApplicationRecord
 
   # scopes
   scope :published, -> { where(published: true) }
+  scope :descending_order, -> { order(created_at: :desc) }
+  scope :recent_paginated_post, ->(page) { descending_order.paginate(page: page, per_page: 6) }
+  scope :paginated_post, ->(page) { descending_order.paginate(page: page, per_page: 24) }
+  scope :with_tag, ->(tag) { tagged_with(tag) if tag.present? }
   scope :list_for_top, lambda { |page, tag|
-    paginated_post(page).with_tag(tag)
-  }
-  scope :list_for_blog, lambda { |page, tag|
     recent_paginated_post(page).with_tag(tag)
   }
-  scope :paginated_post, ->(page) { most_recent.paginate(page: page, per_page: 6) }
-  scope :recent_paginated_post, ->(page) { most_recent.paginate(page: page, per_page: 24) }
-  scope :most_recent, -> { order(created_at: :desc) }
-  scope :with_tag, ->(tag) { tagged_with(tag) if tag.present? }
+  scope :list_for_blog, lambda { |page, tag|
+    paginated_post(page).with_tag(tag)
+  }
 
   # Friendly ID gem
   extend FriendlyId
@@ -59,5 +57,13 @@ class Post < ApplicationRecord
 
   def unpublish
     update(published: false, published_at: nil)
+  end
+
+  def next
+    Post.published.where('published_at > ?', published_at).order('published_at ASC').first
+  end
+
+  def previous
+    Post.published.where('published_at < ?', published_at).order('published_at DESC').first
   end
 end

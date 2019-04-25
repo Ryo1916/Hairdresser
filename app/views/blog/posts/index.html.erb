@@ -4,4 +4,4 @@
 <div class="row">
   <%= render @posts %>
 </div>
-<%= will_paginate @posts, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<%= will_paginate @posts, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination justify-content-center' %>

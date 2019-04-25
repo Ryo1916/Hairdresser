@@ -1,0 +1,25 @@
+<% provide(:page_title, 'All Categories') %>
+<% provide(:author, 'active') %>
+<div class="row">
+  <%#= render 'sidebar' %>
+  <div class="col-12 mt-3">
+    <div class="mb-3">
+      <div class="text-center">
+        <h4>Categories</h4>
+      </div>
+    </div>
+    <%= render 'form', tag: @tag, url: authors_tags_path %>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <table class="table table-hover table-responsive" id="categories-table">
+          <tr>
+            <th>Category name</th>
+            <th>Taggings count</th>
+            <th>Delete?</th>
+          </tr>
+          <%= render 'tag', tags: @tags %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

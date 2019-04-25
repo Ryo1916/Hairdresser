@@ -1,0 +1,24 @@
+<%= form_with(model: tag, local: true, url: url) do |form| %>
+  <% if tag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tag.errors.count, "error") %> prohibited this tag from being saved:</h2>
+      <ul>
+        <% tag.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row my-4">
+    <div class="col-md-6 offset-md-3">
+      <div class="form-group">
+        <div class="field my-3">
+          <%= form.text_field :name, id: :category_name, class: 'form-control', placeholder: "Enter new category" %>
+        </div>
+        <div class="actions">
+          <%= form.submit "Save", class: 'btn btn-success' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

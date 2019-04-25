@@ -1,16 +1,15 @@
 .posts.index {
   .card {
     border-radius: 10;
-    height: 350px;
     margin-bottom: 20px;
-    background-color: white;
+    background-color: $primary-color-text;
     .card-topper {
       height: 200px;
       width: 100%;
       background-size: cover;
       background-position: center;
     }
-    .card-block {
+    .card-body {
       padding: 10px;
       a {
         text-decoration: none;
@@ -95,22 +94,7 @@
   }
 }
 
-@media screen and (min-width: 34em) {
-  .posts.index .card {
-    height: 440px;
-  }
-}
-
-/* Medium. Above 48em (768px) */
-@media screen and (min-width: 48em) {
-  .posts.index .card {
-    height: 420px;
-  }
-}
-
-/* Extra large. Above 75em (1200px) */
-@media screen and (min-width: 75em) {
-  .posts.index .card {
-    height: 415px;
-  }
+#posts-table {
+  width: 90%;
+  margin: 0 auto !important;
 }
