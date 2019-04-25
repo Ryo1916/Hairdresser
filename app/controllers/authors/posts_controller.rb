@@ -9,7 +9,7 @@ module Authors
     before_action :set_tags, only: %i[new edit]
 
     def index
-      @posts = current_author.posts.most_recent
+      @posts = current_author.posts.paginated_post(params[:page])
     end
 
     def show; end
