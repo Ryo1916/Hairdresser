@@ -1,5 +1,5 @@
 <tr>
-  <td><%= link_to post.title, edit_authors_post_path(post) %></td>
+  <td><%= link_to post.title, authors_post_path(post) %></td>
   <td><%= post.author.name %></td>
   <td><%= post.tags.map { |t| t.name }.join(' ') %></td>
   <% if post.published? %>
