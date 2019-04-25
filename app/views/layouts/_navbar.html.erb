@@ -10,10 +10,11 @@
           <a class="nav-link dropdown-toggle <%= yield(:author) %>" href="#" id="navbarDropdown" role="button" data-flip="true" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
             <%= current_author.name %>
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to 'My Posts', authors_posts_path, class: "dropdown-item" %>
-            <%= link_to 'Account', edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "dropdown-item" %>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="position: absolute;right: 0;left: auto;">
+            <%= link_to 'My Posts', authors_posts_path, class: 'dropdown-item' %>
+            <%= link_to 'Categories', authors_tags_path, class: 'dropdown-item' %>
+            <%= link_to 'Account', edit_user_registration_path, class: 'dropdown-item' %>
+            <%= link_to 'Logout', destroy_author_session_path, method: :delete, class: 'dropdown-item' %>
           </div>
         </li>
       <% else %>
