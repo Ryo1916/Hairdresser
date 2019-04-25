@@ -2,8 +2,11 @@
 
 module Authors
   class PostsController < AuthorController
+    include Common
+
     before_action :set_post, only: %i[show edit update destroy publish unpublish]
     before_action :set_author, only: %i[index show new edit]
+    before_action :set_tags, only: %i[new edit]
 
     def index
       @posts = current_author.posts.most_recent
@@ -63,10 +66,6 @@ module Authors
     end
 
     private
-
-    def set_author
-      @author = current_author
-    end
 
     def set_post
       @post = current_author.posts.friendly.find(params[:id])
