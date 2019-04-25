@@ -1,0 +1,7 @@
+<% tags.each do |tag| %>
+  <tr>
+    <td><%= tag.name %></td>
+    <td><%= tag.taggings_count %></td>
+    <td><%= link_to 'Delete', authors_tag_path(tag), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
