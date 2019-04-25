@@ -72,7 +72,7 @@ module Authors
     end
 
     def post_params
-      params.require(:post).permit(:title, :body, :slug, :tag_list)
+      params.require(:post).permit(:title, :body, :slug, tag_list: [])
     end
   end
 end
