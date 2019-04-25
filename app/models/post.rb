@@ -23,16 +23,16 @@ class Post < ApplicationRecord
 
   # scopes
   scope :published, -> { where(published: true) }
+  scope :descending_order, -> { order(created_at: :desc) }
+  scope :recent_paginated_post, ->(page) { descending_order.paginate(page: page, per_page: 6) }
+  scope :paginated_post, ->(page) { descending_order.paginate(page: page, per_page: 24) }
+  scope :with_tag, ->(tag) { tagged_with(tag) if tag.present? }
   scope :list_for_top, lambda { |page, tag|
-    paginated_post(page).with_tag(tag)
-  }
-  scope :list_for_blog, lambda { |page, tag|
     recent_paginated_post(page).with_tag(tag)
   }
-  scope :paginated_post, ->(page) { most_recent.paginate(page: page, per_page: 6) }
-  scope :recent_paginated_post, ->(page) { most_recent.paginate(page: page, per_page: 24) }
-  scope :most_recent, -> { order(created_at: :desc) }
-  scope :with_tag, ->(tag) { tagged_with(tag) if tag.present? }
+  scope :list_for_blog, lambda { |page, tag|
+    paginated_post(page).with_tag(tag)
+  }
 
   # Friendly ID gem
   extend FriendlyId
