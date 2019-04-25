@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         put 'unpublish' => 'posts#unpublish'
       end
     end
+    resources :tags, only: %i[index create destroy]
     post '/tinymce_assets' => 'tinymce_assets#create'
   end
 
