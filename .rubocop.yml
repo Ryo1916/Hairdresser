@@ -20,7 +20,7 @@ Style/AsciiComments:
 
 # Line length
 Metrics/LineLength:
-  Max: 120
+  Enabled: false
 
 # Block length
 Metrics/BlockLength:
