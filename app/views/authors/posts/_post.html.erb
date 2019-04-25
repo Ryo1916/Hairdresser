@@ -3,11 +3,21 @@
   <td><%= post.author.name %></td>
   <td><%= post.tags.map { |t| t.name }.join(' ') %></td>
   <% if post.published? %>
-    <td>Published at <%= post.published_at.strftime('%Y %-b %-d %T') %></td>
-    <td><%= link_to 'Unpublish', unpublish_authors_post_path(post), method: :put, class: 'btn btn-sm btn-outline-success' %></td>
+    <td>
+      Published at <%= post.published_at.strftime('%Y %-b %-d %T') %>
+    </td>
+    <td>
+      <%= link_to 'Unpublish', unpublish_authors_post_path(post), method: :put, class: 'btn btn-sm btn-outline-success' %>
+    </td>
   <% else %>
-    <td>Created at <%= post.created_at.strftime('%Y %-b %-d') %></td>
-    <td><%= link_to 'Publish', publish_authors_post_path(post), method: :put, class: 'btn btn-sm btn-success' %></td>
+    <td>
+      Created at <%= post.created_at.strftime('%Y %-b %-d') %>
+    </td>
+    <td>
+      <%= link_to 'Publish', publish_authors_post_path(post), method: :put, class: 'btn btn-sm btn-success' %>
+    </td>
   <% end %>
-  <td><%= link_to 'Remove', authors_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
+  <td>
+    <%= link_to 'Remove', authors_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+  </td>
 </tr>
