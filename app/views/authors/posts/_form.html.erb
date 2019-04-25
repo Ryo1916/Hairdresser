@@ -38,12 +38,9 @@
           <%= tinymce uploadimage_form_url: '/authors/tinymce_assets', relative_urls: false, uploadimage_default_img_class: 'img-fluid' %>
         </div>
         <div class="actions">
-          <%= form.submit "Save blog post", class: 'btn btn-success' %>
+          <%= form.submit "Save", class: 'btn btn-success' %>
+          <%= link_to('Back', post.persisted? ? authors_post_path(post) : authors_posts_path, class: 'btn btn-secondary', data: { confirm: 'Are you sure? All text you wrote will be unsaved.' }) %>
         </div>
-        <% if @post.persisted? %>
-          <%= link_to 'Show', authors_post_path(@post) %> |
-        <% end %>
-        <%= link_to 'Back', authors_posts_path %>
       </div>
     </div>
   </div>
