@@ -24,7 +24,7 @@
   <div class="row my-4">
     <div class="col-md-8 offset-md-2">
       <div class="form-group">
-        <div class="field">
+        <div class="field my-3">
           <%= form.label :title %>
           <%= form.text_field :title, id: :post_title, class: 'form-control', placeholder: "Enter post title" %>
         </div>
@@ -33,7 +33,7 @@
           <%#= form.collection_select :tag_list, ActsAsTaggableOn::Tag.all, :name, :name, mutiple: true, include_blank: true %>
           <%= form.text_field :tag_list, id: :post_tag_list, class: 'form-control', placeholder: "Enter the categories" %>
         </div>
-        <div class="field my-4">
+        <div class="field my-3">
           <%= form.text_area :body, class: :tinymce, id: :post_body %>
           <%= tinymce uploadimage_form_url: '/authors/tinymce_assets', relative_urls: false, uploadimage_default_img_class: 'img-fluid' %>
         </div>
