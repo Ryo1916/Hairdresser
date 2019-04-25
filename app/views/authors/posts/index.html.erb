@@ -18,5 +18,6 @@
       </tr>
       <%= render @posts %>
     </table>
+    <%= will_paginate @posts, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination justify-content-center' %>
   </div>
 </div>
