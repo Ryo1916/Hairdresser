@@ -30,3 +30,47 @@ Post.create!( title:            "How to use seeds.rb?",
                 published: true,
                 published_at: Faker::Time.between(DateTime.now - 365, DateTime.now))
 end
+
+# categories
+ActsAsTaggableOn::Tag.create!( name: 'color' )
+ActsAsTaggableOn::Tag.create!( name: 'cut' )
+ActsAsTaggableOn::Tag.create!( name: 'styling' )
+ActsAsTaggableOn::Tag.create!( name: 'perm' )
+ActsAsTaggableOn::Tag.create!( name: 'care' )
+ActsAsTaggableOn::Tag.create!( name: 'dryer' )
+ActsAsTaggableOn::Tag.create!( name: 'blogs' )
+ActsAsTaggableOn::Tag.create!( name: 'others' )
+
+# associate categories and blogs
+tags = ActsAsTaggableOn::Tag.all
+posts = Post.all
+
+for i in 0..9
+  posts[i].tag_list.add(tags[0])
+  posts[i].save
+end
+
+for i in 10..19
+  posts[i].tag_list.add(tags[1])
+  posts[i].save
+end
+
+for i in 20..29
+  posts[i].tag_list.add(tags[2])
+  posts[i].save
+end
+
+for i in 30..39
+  posts[i].tag_list.add(tags[3])
+  posts[i].save
+end
+
+for i in 40..44
+  posts[i].tag_list.add(tags[4], tags[6])
+  posts[i].save
+end
+
+for i in 45..49
+  posts[i].tag_list.add(tags[5], tags[7])
+  posts[i].save
+end
