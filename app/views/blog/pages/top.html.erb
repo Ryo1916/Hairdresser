@@ -1,26 +1,5 @@
-<!-- Carousel -->
-<%#= render 'carousel' %>
-
-<!-- Movie -->
 <%= render 'movie' %>
-
-<!-- My works -->
-<%#= render 'myworks' %>
-
-<!-- Blogs -->
+<%= render 'categories', tags: @tags %>
 <%= render 'recent_posts', posts: @posts %>
-
-<!-- Categories -->
-<%#= render 'categories' %>
-
-<!-- About -->
 <%= render 'about', author: @author %>
-
-<!-- Maps -->
-<%#= render 'maps' %>
-
-<!-- Contact -->
-<%#= render 'contact' %>
-
-<!-- footer -->
 <%= render 'footer' %>
