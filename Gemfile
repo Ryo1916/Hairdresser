@@ -27,14 +27,17 @@ gem 'font-awesome-sass',       '5.6.1'
 gem 'sass-rails',              '5.0.6'
 gem 'will_paginate',           '3.1.6'
 
-# wysiwyg
-gem 'tinymce-rails',             '4.9.1'
-gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupload'
-
 # js
 gem 'coffee-rails', '4.2.2'
 gem 'jquery-rails', '4.3.1'
 gem 'popper_js',    '1.14.3'
+
+# wysiwyg
+gem 'tinymce-rails',             '4.9.1'
+gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupload'
+
+# for posting support
+gem 'social-share-button', '1.2.0'
 
 # i18n
 gem 'http_accept_language', '2.1.1'
