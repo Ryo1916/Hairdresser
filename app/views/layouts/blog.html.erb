@@ -8,5 +8,6 @@
     <div class="container-fluid <%= controller_name %> <%= action_name %> <%= mt-0 if current_page?(root_path) %>">
       <%= yield %>
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
