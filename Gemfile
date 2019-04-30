@@ -47,7 +47,6 @@ gem 'carrierwave', '1.2.3'
 gem 'mini_magick', '4.9.2'
 
 # account
-gem 'activeadmin',       '1.3.1'
 gem 'devise',            '4.5'
 gem 'letter_opener_web', '1.3.4'
 
