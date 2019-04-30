@@ -1,4 +1,11 @@
 #categories-table {
-  width:80%;
-  margin: 0 auto !important;
+  margin: auto;
+  width: 80% !important;
+}
+
+@media only screen and (max-width: 414px) {
+  #categories-table {
+    margin: auto;
+    width: 100% !important;
+  }
 }
