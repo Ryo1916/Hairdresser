@@ -2,5 +2,5 @@
 
 require 'rails_helper'
 
-RSpec.describe TagsController, type: :controller do
+RSpec.describe Authors::TagsController, type: :controller do
 end
