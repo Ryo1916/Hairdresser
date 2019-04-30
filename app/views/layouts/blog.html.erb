@@ -3,10 +3,8 @@
   <head>
     <%= render 'shared/head' %>
   </head>
-
   <body>
     <%= render 'layouts/navbar' %>
-
     <div class="container-fluid <%= controller_name %> <%= action_name %>" style="<%= 'margin-top:0;' if current_page?(root_path) %>">
       <%= yield %>
     </div>
