@@ -1,15 +1,22 @@
-<div class="row" id="categories">
-  <% tags.zip(category_images).each do |tag, category_image| %>
-    <div class="col-6 col-sm-4 col-md-4 col-lg-4 px-0">
-      <%= link_to posts_path(tag: tag.name) do %>
-        <div class="hovereffect">
-          <img src="<%= category_image %>" class="img-fluid" alt="Responsive image">
-          <div class="overlay">
-            <p>Category</p>
-            <p><%= tag.name %></p>
-          </div>
-        </div>
-      <% end %>
+<div class="categories my-5" id="categories">
+  <div class="row my-4">
+    <div class="col-md-6 offset-md-3">
+      <h4 class="text-center">Categories</h4>
     </div>
-  <% end %>
+  </div>
+  <div class="row" id="categories">
+    <% tags.zip(category_images).each do |tag, category_image| %>
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 px-0">
+        <%= link_to posts_path(tag: tag.name) do %>
+          <div class="hovereffect">
+            <img src="<%= category_image %>" class="img-fluid" alt="Responsive image">
+            <div class="overlay">
+              <h2><%= tag.name %></h2>
+              <p>Category</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
