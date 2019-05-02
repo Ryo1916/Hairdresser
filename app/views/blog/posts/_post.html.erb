@@ -10,9 +10,10 @@
               |t| link_to t.name, posts_path(tag: t.name)
              }.join(' ') %>
       </p>
-      <p class="published-date">
-        <%= post.display_day_published %>
-      </p>
+      <div class="views-and-published-date">
+        <span><%= post.hits %> views</span>
+        <span class="float-right"><%= post.display_day_published %></span>
+      </div>
     </div>
   </div>
 </div>

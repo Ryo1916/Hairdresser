@@ -13,6 +13,7 @@ module Blog
     def show
       @post = Post.friendly.find(params[:id])
       @post.published ? @post : redirect_to(posts_path, flash: { alert: 'This post is not published.' })
+      @post.punch(request)
     end
   end
 end
