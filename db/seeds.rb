@@ -20,6 +20,11 @@ Post.create!( title:            "How to use seeds.rb?",
               published:        true,
               published_at:     Time.zone.now )
 
+# default image
+Image.create!( alt: 'just the default image.',
+               hint: 'default',
+               file: File.open("#{Rails.root}/app/assets/images/default.jpg") )
+
 # blogs
 50.times do
   six_digits = format("%0#{6}d", SecureRandom.random_number(10**6))
