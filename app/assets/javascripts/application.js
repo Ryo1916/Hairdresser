@@ -11,7 +11,7 @@ $(document).ready(function(){
   // add .navbar-background-top first
   $(".navbar").addClass("navbar-background-top");
 
-  // change background-color
+  // change background-color of navbar
   $(function () {
     $(window).scroll(function () {
       if ($(this).scrollTop() > $('#movie').height()) {

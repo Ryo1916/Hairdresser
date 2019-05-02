@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module PostsHelper
+  # FIXME: use embed default image
   DEFAULT_IMG = 'https://images.pexels.com/photos/1536356/pexels-photo-1536356.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
 
   def parsing_img(text)
