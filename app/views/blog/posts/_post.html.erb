@@ -6,9 +6,9 @@
     <div class="card-body">
       <p class="card-title"><%= link_to post.title, post %></p>
       <p class="tags">
-        <%= raw post.tags.map {
+        <%== post.tags.map {
               |t| link_to t.name, posts_path(tag: t.name)
-            }.join(' ') %>
+             }.join(' ') %>
       </p>
       <p class="published-date">
         <%= post.display_day_published %>
