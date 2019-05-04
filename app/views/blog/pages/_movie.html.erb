@@ -1,4 +1,9 @@
 <!-- FIXME: video_tag is not working -->
-<div class="movie embed-responsive embed-responsive-16by9" id="movie">
-  <video src="/videos/merii_800kbps.mp4" type="video/mp4" class="embed-responsive-item" autoplay loop muted playsinline></video>
+<div id="now-loading" class="d-flex justify-content-center min-vh-100">
+  <div class="spinner-grow m-auto" style="width:3rem; height:3rem;" role="status" aria-hidden="true">
+    <span class="sr-only"></span>
+  </div>
+</div>
+<div class="movie embed-responsive embed-responsive-16by9" id="movie" style="display:none;">
+  <video id="top-movie" src="/videos/merii_800kbps.mp4" type="video/mp4" class="embed-responsive-item" autoplay loop muted playsinline></video>
 </div>
