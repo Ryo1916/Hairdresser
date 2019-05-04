@@ -82,4 +82,4 @@ production:
   <<: *default
   database: hairdresser_production
   username: hairdresser
-  password: <%= ENV['INSTAGRAM_CLONE_DATABASE_PASSWORD'] %>
+  password: <%= ENV['HAIRDRESSER_DATABASE_PASSWORD'] %>
