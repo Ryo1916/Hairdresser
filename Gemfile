@@ -52,7 +52,6 @@ gem 'mini_magick', '4.9.2'
 
 # account
 gem 'devise',            '4.5'
-gem 'letter_opener_web', '1.3.4'
 
 # others
 gem 'faker',     '1.7.3'
@@ -77,6 +76,7 @@ end
 group :development do
   gem 'better_errors',         '2.5.0'
   gem 'binding_of_caller',     '0.8.0'
+  gem 'letter_opener_web',     '1.3.4'
   gem 'listen',                '3.1.5'
   gem 'overcommit',            '0.46.0'
   gem 'pry-byebug',            '3.6.0'
