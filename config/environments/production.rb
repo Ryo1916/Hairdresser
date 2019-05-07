@@ -68,13 +68,13 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'https://hairdresser-yuta.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name: Rails.application.secrets.send_grid_username,
-    password: Rails.application.secrets.send_grid_password,
-    domain: 'herokuapp.com',
     address: 'smtp.sendgrid.net',
     port: 587,
+    domain: 'hairdresser-yuta.herokuapp.com',
     authentication: :plain,
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
+    user_name: 'apikey',
+    password: Rails.application.secrets.sendgrid_api_key
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
