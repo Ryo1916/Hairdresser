@@ -6,10 +6,6 @@ Rails.application.routes.draw do
   devise_for :authors, controllers: {
     registrations: 'authors/registrations'
   }
-  as :author do
-    get 'authors/edit' => 'authors/registrations#edit', as: :edit_author_registration
-    put 'author/:id' => 'authors/registrations#update', as: :author_registration
-  end
 
   namespace :authors do
     resources :posts do
