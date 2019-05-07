@@ -70,7 +70,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     user_name: Rails.application.secrets.send_grid_username,
     password: Rails.application.secrets.send_grid_password,
-    domain: 'hairdresser-yuta.herokuapp.com',
+    domain: 'herokuapp.com',
     address: 'smtp.sendgrid.net',
     port: 587,
     authentication: :plain,
