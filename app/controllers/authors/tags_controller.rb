@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Authors
-  class TagsController < ApplicationController
+  class TagsController < AuthorController
     include Common
 
     before_action :set_tags, only: %i[index]

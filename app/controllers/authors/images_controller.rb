@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Authors
-  class ImagesController < ApplicationController
+  class ImagesController < AuthorController
     before_action :set_image, only: %i[edit update_default_image destroy]
 
     def index
