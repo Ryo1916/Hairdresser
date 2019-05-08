@@ -66,5 +66,5 @@ $(document).ready(function(){
 $(window).on('pageshow', function() {
   $('#now-loading').hide();
   $('#now-loading').removeClass('d-flex');
-  $('#movie').show();
+  $('#movie').fadeIn();
 });
