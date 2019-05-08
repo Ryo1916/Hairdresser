@@ -62,8 +62,8 @@ $(document).ready(function(){
   });
 });
 
-// display spinner until loading the top movie finished
-$(window).on('load', function() {
+// display spinner until finishing loading the top movie.
+$(window).on('pageshow', function() {
   $('#now-loading').hide();
   $('#now-loading').removeClass('d-flex');
   $('#movie').show();
