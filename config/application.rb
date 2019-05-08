@@ -33,6 +33,10 @@ module Hairdresser
       g.stylesheets false
       g.javascripts false
       g.system_tests false
+      g.test_framework :rspec,
+                       fixtures: false,
+                       view_specs: false,
+                       routing_specs: false
     end
 
     # Use encrypted secrets at each environments
