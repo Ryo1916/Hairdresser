@@ -84,6 +84,7 @@ group :development do
   gem 'pry-rails',             '0.3.9'
   gem 'rubocop',               '0.62.0'
   gem 'spring',                '2.0.2'
+  gem 'spring-commands-rspec', '1.0.4'
   gem 'spring-watcher-listen', '2.0.1'
   gem 'web-console',           '3.5.1'
 end
