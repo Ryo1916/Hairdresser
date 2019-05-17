@@ -8,9 +8,9 @@
       <span class="float-right"><%= @post.display_day_published %></span>
     </div>
     <p class="categories mt-2">
-      <% @post.tags.each do |t| %>
-        <span class="badge badge-primary"><%= t.name %></span>
-      <% end %>
+      <%== @post.tags.map {
+            |t| link_to t.name, posts_path(tag: t.name), class: 'badge badge-secondary'
+           }.join(' ') %>
     </p>
     <div class="post-body mt-4"><%== @post.body %></div>
   </div>

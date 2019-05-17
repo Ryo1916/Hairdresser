@@ -9,7 +9,7 @@
     </div>
     <p class="categories mt-2">
       <%== @post.tags.map {
-            |t| link_to t.name, posts_path(tag: t.name)
+            |t| link_to t.name, posts_path(tag: t.name), class: 'badge badge-secondary'
            }.join(' ') %>
     </p>
     <p class="social-share-buttons"><%= social_share_button_tag(@post.title, desc: @post.title) %></p>
