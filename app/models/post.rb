@@ -22,6 +22,10 @@ class Post < ApplicationRecord
   # association
   belongs_to :author
 
+  # validations
+  validates_presence_of :title
+  validates_presence_of :body
+
   # scopes
   scope :published, -> { where(published: true) }
   scope :descending_order, -> { order(created_at: :desc) }

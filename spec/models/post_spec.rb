@@ -3,5 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let!(:post) { create(:post) }
+  let!(:posts) { create_list(:post, 5) }
+
+  # validations test
+  it { should validate_presence_of(:title) }
+  it { should validate_presence_of(:body) }
 end
