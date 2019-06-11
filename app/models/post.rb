@@ -42,10 +42,10 @@ class Post < ApplicationRecord
     )
   }
   scope :with_tag, ->(tag) { tagged_with(tag) if tag.present? }
-  scope :list_for_top, lambda { |page, tag|
+  scope :list_for_top_page, lambda { |page, tag|
     recent_paginated_post(page).with_tag(tag)
   }
-  scope :list_for_blog, lambda { |page, tag|
+  scope :list_for_authors_index_page, lambda { |page, tag|
     paginated_post(page).with_tag(tag)
   }
 

@@ -8,7 +8,7 @@ module Blog
     before_action :set_most_views, only: %i[index show]
 
     def index
-      @posts = Post.published.list_for_blog(params[:page], params[:tag])
+      @posts = Post.published.list_for_authors_index_page(params[:page], params[:tag])
     end
 
     def show
