@@ -29,8 +29,18 @@ class Post < ApplicationRecord
   # scopes
   scope :published, -> { where(published: true) }
   scope :descending_order, -> { order(created_at: :desc) }
-  scope :recent_paginated_post, ->(page) { descending_order.paginate(page: page, per_page: 6) }
-  scope :paginated_post, ->(page) { descending_order.paginate(page: page, per_page: 24) }
+  scope :recent_paginated_post, lambda { |page|
+    descending_order.paginate(
+      page: page,
+      per_page: Constants::MAX_DISPLAY_POSTS_NUM_FOR_TOP_PAGE
+    )
+  }
+  scope :paginated_post, lambda { |page|
+    descending_order.paginate(
+      page: page,
+      per_page: Constants::MAX_DISPLAY_POSTS_NUM_FOR_INDEX_PAGE
+    )
+  }
   scope :with_tag, ->(tag) { tagged_with(tag) if tag.present? }
   scope :list_for_top, lambda { |page, tag|
     recent_paginated_post(page).with_tag(tag)
