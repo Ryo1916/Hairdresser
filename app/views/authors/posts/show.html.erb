@@ -5,7 +5,7 @@
     <h1><%= @post.title %></h1>
     <div class="views-and-published">
       <span><%= @post.hits %> views</span>
-      <span class="float-right"><%= @post.display_day_published %></span>
+      <span class="float-right"><%= display_day_published(post: @post) %></span>
     </div>
     <p class="categories mt-2">
       <%== @post.tags.map {

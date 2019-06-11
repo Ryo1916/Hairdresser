@@ -9,4 +9,12 @@ module PostsHelper
       nodes.xpath('//img').attribute('src').value
     end
   end
+
+  def display_day_published(post:)
+    if post.published_at.present?
+      "Published #{post.published_at.strftime('%-b %-d, %Y')}"
+    else
+      'Not published yet.'
+    end
+  end
 end

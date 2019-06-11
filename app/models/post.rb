@@ -57,15 +57,6 @@ class Post < ApplicationRecord
     title_changed?
   end
 
-  # publish / unpublish
-  def display_day_published
-    if published_at.present?
-      "Published #{published_at.strftime('%-b %-d, %Y')}"
-    else
-      'Not published yet.'
-    end
-  end
-
   def publish
     update(published: true, published_at: Time.zone.now)
   end
