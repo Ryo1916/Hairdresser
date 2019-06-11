@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :post do
-    title 'nice to meet you!'
-    body 'this is my first post on this blog.'
-    association :author, factory: :author, id: 1
+    sequence(:title) { |n| "this is the #{n}th post!" }
+    sequence(:body) { |n| "this is my #{n}th post on this blog." }
+    # association :author, factory: :author
   end
 end
