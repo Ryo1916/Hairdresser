@@ -14,8 +14,8 @@
 
 FactoryBot.define do
   factory :image do
-    alt { 'MyString' }
-    hint { 'MyString' }
-    file { 'MyString' }
+    alt { 'just the default image.' }
+    hint { 'default' }
+    file { Rack::Test::UploadedFile.new(Rails.root.join('spec/support/default.jpg'), 'image/jpeg') }
   end
 end
