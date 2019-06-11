@@ -60,6 +60,23 @@ $(document).ready(function(){
       }
     });
   });
+
+  // validation for categories
+  // FIXME: fix this awful codes
+  $('#create-categories').submit(function(){
+    const VALID_CATEGORIES_REGEX = /^[a-zA-Z ]+$/;
+    var categoryName = $('#category_name').val();
+
+    if (categoryName == "") {
+      $('#name-error').text("* Fill category name.");
+      $("#name-error").show();
+      return false;
+    } else if (!VALID_CATEGORIES_REGEX.test(categoryName)){
+      $('#name-error').text("* Valid only alphabet(case sensitive).");
+      $('#name-error').show();
+      return false;
+    }
+  });
 });
 
 // display spinner until finishing loading the top movie.

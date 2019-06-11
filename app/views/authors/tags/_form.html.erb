@@ -1,4 +1,4 @@
-<%= form_with(model: tag, local: true, url: url) do |form| %>
+<%= form_with(model: tag, local: true, url: url, id: 'create-categories') do |form| %>
   <% if tag.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(tag.errors.count, "error") %> prohibited this tag from being saved:</h2>
@@ -14,6 +14,7 @@
       <div class="form-group">
         <div class="field my-3">
           <%= form.text_field :name, id: :category_name, class: 'form-control', placeholder: "Enter new category" %>
+          <p id="name-error" style="color:red; display:none"></p>
         </div>
         <div class="actions">
           <%= form.submit "Save", class: 'btn btn-success' %>
