@@ -13,7 +13,7 @@ module ApplicationHelper
     ]
   end
 
-  def full_title(page_title: '')
+  def full_page_title(page_title: '')
     base_title = Constants::APP_NAME
     if page_title.empty?
       base_title
