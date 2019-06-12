@@ -21,6 +21,7 @@ module Authors
 
     def first_author_registered?
       return unless Author.first.persisted?
+
       if author_signed_in?
         redirect_to root_path
       else

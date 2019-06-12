@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  # Constants
-  APP_NAME = 'Hairdresser Yuta'
-
   # To display category images on top page instantly
   def category_images
     category_images = [
@@ -16,9 +13,8 @@ module ApplicationHelper
     ]
   end
 
-  # Return web page title
-  def full_title(page_title = '')
-    base_title = APP_NAME
+  def full_page_title(page_title: '')
+    base_title = Constants::APP_NAME
     if page_title.empty?
       base_title
     else

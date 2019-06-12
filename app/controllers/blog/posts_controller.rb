@@ -8,7 +8,7 @@ module Blog
     before_action :set_most_views, only: %i[index show]
 
     def index
-      @posts = Post.published.list_for_blog(params[:page], params[:tag])
+      @posts = Post.published.list_for_authors_index_page(params[:page], params[:tag])
     end
 
     def show
@@ -19,10 +19,8 @@ module Blog
 
     private
 
-    MAX_DISPLAY_NUMBER_OF_MOST_VIEWED = 10
-
     def set_most_views
-      @most_views = Post.most_hit.limit(MAX_DISPLAY_NUMBER_OF_MOST_VIEWED)
+      @most_views = Post.most_hit.limit(Constants::MAX_DISPLAY_NUM_FOR_MOST_VIEWED_POSTS)
     end
   end
 end

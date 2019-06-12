@@ -22,16 +22,30 @@ class Post < ApplicationRecord
   # association
   belongs_to :author
 
+  # validations
+  validates_presence_of :title
+  validates_presence_of :body
+
   # scopes
   scope :published, -> { where(published: true) }
   scope :descending_order, -> { order(created_at: :desc) }
-  scope :recent_paginated_post, ->(page) { descending_order.paginate(page: page, per_page: 6) }
-  scope :paginated_post, ->(page) { descending_order.paginate(page: page, per_page: 24) }
+  scope :recent_paginated_post, lambda { |page|
+    descending_order.paginate(
+      page: page,
+      per_page: Constants::MAX_DISPLAY_POSTS_NUM_FOR_TOP_PAGE
+    )
+  }
+  scope :paginated_post, lambda { |page|
+    descending_order.paginate(
+      page: page,
+      per_page: Constants::MAX_DISPLAY_POSTS_NUM_FOR_INDEX_PAGE
+    )
+  }
   scope :with_tag, ->(tag) { tagged_with(tag) if tag.present? }
-  scope :list_for_top, lambda { |page, tag|
+  scope :list_for_top_page, lambda { |page, tag|
     recent_paginated_post(page).with_tag(tag)
   }
-  scope :list_for_blog, lambda { |page, tag|
+  scope :list_for_authors_index_page, lambda { |page, tag|
     paginated_post(page).with_tag(tag)
   }
 
@@ -41,15 +55,6 @@ class Post < ApplicationRecord
 
   def should_generate_new_friendly_id?
     title_changed?
-  end
-
-  # publish / unpublish
-  def display_day_published
-    if published_at.present?
-      "Published #{published_at.strftime('%-b %-d, %Y')}"
-    else
-      'Not published yet.'
-    end
   end
 
   def publish
