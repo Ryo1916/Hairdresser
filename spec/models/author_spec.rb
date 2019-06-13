@@ -5,6 +5,10 @@ require 'rails_helper'
 RSpec.describe Author, type: :model do
   let!(:author) { create(:author) }
 
+  after(:each) do
+    I18n.locale = :en
+  end
+
   describe 'associations' do
     it { should have_many(:posts).class_name('Post') }
   end
