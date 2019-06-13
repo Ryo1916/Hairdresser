@@ -1,7 +1,7 @@
 <div class="about my-5" id="about">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <h4 class="text-center">About</h4>
+      <h4 class="text-center"><%= t('top.about.menu') %></h4>
     </div>
   </div>
 
@@ -9,7 +9,7 @@
 
   <div class="row">
     <div class="col-md-6 mb-4">
-      <p class="text-center">Contact</p>
+      <p class="text-center"><%= t('top.contact.menu') %></p>
       <div class="text-center my-4">
         <%= image_tag('author_default.jpg', id: 'author_image', class: 'rounded-circle text-center', alt: 'Author image') %>
       </div>
@@ -35,15 +35,15 @@
       <!-- </div> -->
     </div>
     <div class="col-md-6">
-      <p class="text-center">My Studio</p>
+      <p class="text-center"><%= t('top.studio.menu') %></p>
       <div class="iframe-container my-4">
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6482.755224633582!2d139.705785!3d35.667703!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9c8f042d354157fa!2sASSORT+HARAJUKU+Harajuku+Hair+Salon!5e0!3m2!1sen!2sjp!4v1554368717051!5m2!1sen!2sjp" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
       </div>
       <div class="studios-info" style="margin-top:20px;">
-        <p>Assort Harajuku</p>
-        <p style="font-size:14px;">6-7-14 NK Bldg. 2F, Jingumae, Shibuya-ku, Tokyo 150-0001</p>
-        <p style="font-size:14px;">TEL: +81-3-6712-6945</p>
-        <p style="font-size:14px;"><a href="http://www.assort-hair.com/en/">http://www.assort-hair.com/en/</a></p>
+        <p><%= t('top.studio.name') %></p>
+        <p style="font-size:14px;"><%= t('top.studio.place') %></p>
+        <p style="font-size:14px;">TEL: <%= t('top.studio.tel') %></p>
+        <p style="font-size:14px;"><a href="<%= t('top.studio.url') %>"><%= t('top.studio.url') %></a></p>
       </div>
     </div>
   </div>
