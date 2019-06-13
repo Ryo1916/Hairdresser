@@ -3,7 +3,7 @@
 <div class="row my-4">
   <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
     <h1><%= @post.title %></h1>
-    <div class="views-and-published">
+    <div class="view-counts-and-published-date">
       <span><%= @post.hits %> views</span>
       <span class="float-right"><%= display_day_published(post: @post) %></span>
     </div>
@@ -30,6 +30,8 @@
   *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
   if(typeof DISQUS === "undefined") {
     var disqus_config = function () {
+      var browser_language = navigator.language;
+      this.language = browser_language;
       this.page.url = '<%= request.original_url %>'; // Replace PAGE_URL with your page's canonical URL variable
       this.page.identifier = '<%= @post.slug %>'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };

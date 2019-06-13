@@ -1,7 +1,15 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root to: 'blog/pages#top'
+  scope ':locale', constraints: { locale: /|\w{2}/ } do
+    root to: 'blog/pages#top'
+
+    scope module: 'blog' do
+      get 'top' => 'pages#top', as: :top
+      get 'posts' => 'posts#index', as: :posts
+      get 'posts/:id' => 'posts#show', as: :post
+    end
+  end
 
   devise_for :authors, controllers: {
     registrations: 'authors/registrations'
@@ -16,12 +24,6 @@ Rails.application.routes.draw do
     end
     resources :tags, only: %i[index create destroy]
     post '/tinymce_assets' => 'tinymce_assets#create'
-  end
-
-  scope module: 'blog' do
-    get 'top' => 'pages#top', as: :top
-    get 'posts' => 'posts#index', as: :posts
-    get 'posts/:id' => 'posts#show', as: :post
   end
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?

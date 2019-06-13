@@ -1,10 +1,10 @@
 <div class="categories my-5" id="categories">
   <div class="row my-4">
     <div class="col-md-6 offset-md-3">
-      <h4 class="text-center">Categories</h4>
+      <h4 class="text-center"><%= t('top.categories.menu') %></h4>
     </div>
   </div>
-  <div class="row" id="categories">
+  <div class="row">
     <% tags.zip(category_images).each do |tag, category_image| %>
       <div class="col-6 col-sm-4 col-md-4 col-lg-4 px-0">
         <%= link_to posts_path(tag: tag.name) do %>

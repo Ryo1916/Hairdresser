@@ -10,7 +10,7 @@
                |t| link_to t.name, posts_path(tag: t.name), class: 'badge badge-secondary'
              }.join(' ') %>
       </p>
-      <div class="views-and-published-date">
+      <div class="view-counts-and-published-date">
         <span><%= post.hits %> views</span>
         <span class="float-right"><%= display_day_published(post: post) %></span>
       </div>
