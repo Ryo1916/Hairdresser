@@ -26,30 +26,17 @@
 }
 
 .posts.show {
-  .author-bio {
-    background-color: white;
-    padding: 15px 45px;
-    margin: 30px 0;
-    img {
-      border-radius: 50%;
-    }
-    img, h4 {
-      margin-bottom: 10px;
-    }
-    h4 {
-      font-weight: bold;
-      font-size: 22px;
-    }
-    h6 {
-      font-weight: 300;
-      font-size: 16px
-    }
+  h1 {
+    font-family: 'Playfair Display', 'M PLUS Rounded 1c', sans-serif !important;
   }
-  .views-and-published {
+  .view-counts-and-published-date {
     span {
       font-weight: 300;
       font-size: 16px
     }
+  }
+  .post-body p {
+    font-family: 'Playfair Display', 'M PLUS Rounded 1c', sans-serif !important;
   }
   .most-viewed {
     p {
