@@ -93,4 +93,8 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
+  # fake HTTP_ACCEPT_LANGUAGE in RSpec
+  config.before :each, type: :feature do
+    request.env['HTTP_ACCEPT_LANGUAGE'] = 'en'
+  end
 end
