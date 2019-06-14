@@ -37,6 +37,7 @@ gem 'tinymce-rails',             '4.9.1'
 gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupload'
 
 # for posting support
+gem 'impressionist',       '1.6.1'
 gem 'punching_bag',        '0.6.0'
 gem 'social-share-button', '1.2.0'
 
