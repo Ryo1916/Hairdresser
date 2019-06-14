@@ -18,7 +18,6 @@
 
 class Post < ApplicationRecord
   acts_as_taggable # Alias for acts_as_taggable_on :tags
-  # acts_as_punchable
   is_impressionable counter_cache: true # to get the count of impressions
 
   # association
