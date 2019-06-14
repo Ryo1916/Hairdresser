@@ -128,7 +128,7 @@ RSpec.describe Post, type: :model do
       it 'returns an impressionable post' do
         post.publish
         expect(Post.set_popular_posts)
-          .to eq(Post.published.where('impressions_count > ?', 0).impressions_count_order.limit(Constants::MAX_DISPLAY_NUM_FOR_MOST_VIEWED_POSTS))
+          .to eq(Post.published.where('impressions_count > ?', Constants::NOT_VIEWD_POSTS).impressions_count_order.limit(Constants::MAX_DISPLAY_NUM_FOR_MOST_VIEWED_POSTS))
       end
 
       it 'returns no post' do

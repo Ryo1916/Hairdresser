@@ -51,7 +51,7 @@ class Post < ApplicationRecord
     paginated_post(page).with_tag(tag)
   }
   scope :set_popular_posts, lambda {
-    published.where('impressions_count > ?', 0).impressions_count_order.limit(Constants::MAX_DISPLAY_NUM_FOR_MOST_VIEWED_POSTS)
+    published.where('impressions_count > ?', Constants::NOT_VIEWD_POSTS).impressions_count_order.limit(Constants::MAX_DISPLAY_NUM_FOR_MOST_VIEWED_POSTS)
   }
 
   # Friendly ID gem
