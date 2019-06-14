@@ -4,20 +4,22 @@
 #
 # Table name: posts
 #
-#  id           :bigint(8)        not null, primary key
-#  title        :string
-#  body         :text
-#  slug         :string
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  author_id    :integer
-#  published    :boolean          default(FALSE)
-#  published_at :datetime
+#  id                :bigint(8)        not null, primary key
+#  title             :string
+#  body              :text
+#  slug              :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  author_id         :integer
+#  published         :boolean          default(FALSE)
+#  published_at      :datetime
+#  impressions_count :integer          default(0)
 #
 
 class Post < ApplicationRecord
   acts_as_taggable # Alias for acts_as_taggable_on :tags
-  acts_as_punchable
+  # acts_as_punchable
+  is_impressionable counter_cache: true # to get the count of impressions
 
   # association
   belongs_to :author

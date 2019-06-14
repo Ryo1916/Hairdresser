@@ -4,15 +4,16 @@
 #
 # Table name: posts
 #
-#  id           :bigint(8)        not null, primary key
-#  title        :string
-#  body         :text
-#  slug         :string
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  author_id    :integer
-#  published    :boolean          default(FALSE)
-#  published_at :datetime
+#  id                :bigint(8)        not null, primary key
+#  title             :string
+#  body              :text
+#  slug              :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  author_id         :integer
+#  published         :boolean          default(FALSE)
+#  published_at      :datetime
+#  impressions_count :integer          default(0)
 #
 
 FactoryBot.define do
