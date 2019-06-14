@@ -5,9 +5,9 @@
 # Table name: posts
 #
 #  id           :bigint(8)        not null, primary key
-#  title        :string(255)
-#  body         :text(65535)
-#  slug         :string(255)
+#  title        :string
+#  body         :text
+#  slug         :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  author_id    :integer
