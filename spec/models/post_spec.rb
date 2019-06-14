@@ -20,7 +20,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   let!(:author) { create(:author) }
-  let!(:post) { create(:post, author: author) }
+  let!(:post) { create(:post, author: author, impressions_count: 2) }
   let!(:posts) { create_list(:post, 5, author: author) }
 
   PAGINATED_QUERY = 2
@@ -52,6 +52,13 @@ RSpec.describe Post, type: :model do
     context 'descending_order' do
       it 'returns descending ordered posts' do
         expect(Post.descending_order).to eq(Post.order(created_at: :desc))
+      end
+    end
+
+    context 'impressions_count_order' do
+      it 'returns posts ordered by impressions counts' do
+        post.publish
+        expect(Post.impressions_count_order).to eq(Post.order(impressions_count: :desc))
       end
     end
 
@@ -114,6 +121,18 @@ RSpec.describe Post, type: :model do
       it "returns no post when the specified tag doesn't exist" do
         expect(Post.list_for_authors_index_page(PAGINATED_QUERY, UNEXISTING_TAG))
           .to eq(Post.paginated_post(PAGINATED_QUERY).with_tag(UNEXISTING_TAG))
+      end
+    end
+
+    context 'set_popular_posts' do
+      it 'returns an impressionable post' do
+        post.publish
+        expect(Post.set_popular_posts)
+          .to eq(Post.published.where('impressions_count > ?', 0).impressions_count_order.limit(Constants::MAX_DISPLAY_NUM_FOR_MOST_VIEWED_POSTS))
+      end
+
+      it 'returns no post' do
+        expect(Post.set_popular_posts).to be_empty
       end
     end
   end

@@ -4,8 +4,8 @@
     <tbody>
       <% most_views.each do |p| %>
         <tr>
-          <td class="view-points"><span class="badge badge-secondary"><%= p.hits %> views</span></td>
-          <td><%= link_to(p.title, post_path(p), style: 'text-decoration:none;') %></td>
+          <td class="view-points"><span class="badge badge-secondary"><%= p.impressions_count %> views</span></td>
+          <td><%= link_to p.title, post_path(p), style: 'text-decoration:none;' %></td>
         </tr>
       <% end %>
     </tbody>

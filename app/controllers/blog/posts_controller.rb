@@ -7,6 +7,8 @@ module Blog
     before_action :set_author, only: %i[index show]
     before_action :set_most_views, only: %i[index show]
 
+    impressionist actions: %i[show]
+
     def index
       @posts = Post.published.list_for_authors_index_page(params[:page], params[:tag])
     end
@@ -14,13 +16,13 @@ module Blog
     def show
       @post = Post.friendly.find(params[:id])
       @post.published ? @post : redirect_to(posts_path, flash: { alert: 'This post is not published.' })
-      @post.punch(request)
+      impressionist(@post, nil, unique: [:session_hash])
     end
 
     private
 
     def set_most_views
-      @most_views = Post.most_hit.limit(Constants::MAX_DISPLAY_NUM_FOR_MOST_VIEWED_POSTS)
+      @most_views = Post.set_popular_posts
     end
   end
 end

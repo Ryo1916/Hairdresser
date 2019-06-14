@@ -31,6 +31,7 @@ class Post < ApplicationRecord
   # scopes
   scope :published, -> { where(published: true) }
   scope :descending_order, -> { order(created_at: :desc) }
+  scope :impressions_count_order, -> { order(impressions_count: :desc) }
   scope :recent_paginated_post, lambda { |page|
     descending_order.paginate(
       page: page,
@@ -49,6 +50,9 @@ class Post < ApplicationRecord
   }
   scope :list_for_authors_index_page, lambda { |page, tag|
     paginated_post(page).with_tag(tag)
+  }
+  scope :set_popular_posts, lambda {
+    published.where('impressions_count > ?', 0).impressions_count_order.limit(Constants::MAX_DISPLAY_NUM_FOR_MOST_VIEWED_POSTS)
   }
 
   # Friendly ID gem
