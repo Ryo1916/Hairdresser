@@ -9,7 +9,7 @@ module Authors
     before_action :set_tags, only: %i[new edit]
 
     def index
-      @posts = current_author.posts.paginated_post(params[:page])
+      @posts = current_author.posts.search_title(params[:title]).paginated_post(params[:page])
     end
 
     def show; end
