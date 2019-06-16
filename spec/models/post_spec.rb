@@ -107,19 +107,19 @@ RSpec.describe Post, type: :model do
       end
     end
 
-    context 'list_for_authors_index_page' do
-      it 'returns posts for authors index page' do
-        expect(Post.list_for_authors_index_page(PAGINATED_QUERY, EMPTY_TAG))
+    context 'list_for_index_page' do
+      it 'returns posts for index page' do
+        expect(Post.list_for_index_page(PAGINATED_QUERY, EMPTY_TAG))
           .to eq(Post.paginated_post(PAGINATED_QUERY).with_tag(EMPTY_TAG))
       end
 
-      it 'returns posts for authors index page with the specified tag' do
-        expect(Post.list_for_authors_index_page(PAGINATED_QUERY, EXISTING_TAG))
+      it 'returns posts for index page with the specified tag' do
+        expect(Post.list_for_index_page(PAGINATED_QUERY, EXISTING_TAG))
           .to eq(Post.paginated_post(PAGINATED_QUERY).with_tag(EXISTING_TAG))
       end
 
       it "returns no post when the specified tag doesn't exist" do
-        expect(Post.list_for_authors_index_page(PAGINATED_QUERY, UNEXISTING_TAG))
+        expect(Post.list_for_index_page(PAGINATED_QUERY, UNEXISTING_TAG))
           .to eq(Post.paginated_post(PAGINATED_QUERY).with_tag(UNEXISTING_TAG))
       end
     end

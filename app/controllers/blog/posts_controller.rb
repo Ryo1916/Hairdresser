@@ -10,7 +10,7 @@ module Blog
     impressionist actions: %i[show]
 
     def index
-      @posts = Post.published.list_for_authors_index_page(params[:page], params[:tag])
+      @posts = Post.published.list_for_index_page(params[:page], params[:tag])
     end
 
     def show
