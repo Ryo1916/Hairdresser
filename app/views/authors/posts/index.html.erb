@@ -9,6 +9,10 @@
         <h4>My Posts</h4>
       </div>
     </div>
+    <div class="search col-md-6 offset-md-3 my-4">
+      <%= render 'shared/search' %>
+    </div>
+    <!-- TODO: タイトル等の各要素の長さによってテーブルの大きさが変わらないようにする -->
     <table class="table table-sm table-responsive" id="posts-table">
       <tr>
         <th>Title</th>
