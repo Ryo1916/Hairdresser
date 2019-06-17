@@ -2,6 +2,10 @@
   <tr>
     <td><%= tag.name %></td>
     <td><%= tag.taggings_count %></td>
-    <td><%= link_to 'Delete', authors_tag_path(tag), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+      <%= link_to authors_tag_path(tag), method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <i class="fas fa-trash-alt mr-2" data-toggle="tooltip" data-placement="top" title="Delete"></i>
+      <% end %>
+    </td>
   </tr>
 <% end %>

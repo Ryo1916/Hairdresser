@@ -1,6 +1,17 @@
 #categories-table {
   margin: auto;
-  width: 80% !important;
+  width: 100% !important;
+
+  th {
+    margin-right: 10px;
+    font-weight: normal;
+    font-size: 14px;
+  }
+
+  td {
+    margin-right: 10px;
+    font-size: 14px;
+  }
 }
 
 @media only screen and (max-width: 414px) {
