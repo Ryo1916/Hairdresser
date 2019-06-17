@@ -8,6 +8,9 @@
 
 $(document).ready(function(){
 
+  // initialize tooltips
+  $('[data-toggle="tooltip"]').tooltip()
+
   // add .navbar-background-top first
   $(".navbar").addClass("navbar-background-top");
 
