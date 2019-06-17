@@ -5,9 +5,13 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
 
-  layout 'author'
+  layout :set_layout
 
   private
+
+  def set_layout
+    author_signed_in? ? 'author' : 'blog'
+  end
 
   def after_sign_in_path_for(resource)
     authors_posts_path(resource)
