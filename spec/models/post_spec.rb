@@ -20,7 +20,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   let!(:author) { create(:author) }
-  let!(:post) { create(:post, title: 'first post', author: author, impressions_count: 2) }
+  let!(:post) { create(:post, title: 'first post', body: 'this is the my first post', author: author, impressions_count: 2) }
   let!(:posts) { create_list(:post, 5, author: author) }
 
   PAGINATED_QUERY = 2
@@ -136,20 +136,28 @@ RSpec.describe Post, type: :model do
       end
     end
 
-    context 'search_title' do
-      it 'returns searched posts' do
-        search = 'first'
-        expect(Post.search_title(search)).to eq(Post.where('title LIKE ?', "%#{search}%"))
+    context 'search_post' do
+      it 'returns the post that include the search term in the title' do
+        title = 'first'
+        expect(Post.search_post(title))
+          .to eq(Post.where('(title LIKE ?) or (body LIKE ?)', "%#{title}%", "%#{title}%"))
+      end
+
+      it ' returns the post that include the search term in the body' do
+        body = 'this is the my first'
+        expect(Post.search_post(body))
+          .to eq(Post.where('(title LIKE ?) or (body LIKE ?)', "%#{body}%", "%#{body}%"))
       end
 
       it 'returns all posts when form is empty' do
-        search = ''
-        expect(Post.search_title(search)).to eq(Post.where('title LIKE ?', "%#{search}%"))
+        empty = ''
+        expect(Post.search_post(empty))
+          .to eq(Post.where('(title LIKE ?) or (body LIKE ?)', "%#{empty}%", "%#{empty}%"))
       end
 
       it 'returns no post when there is no result' do
-        search = 'unexsisting title'
-        expect(Post.search_title(search)).to be_empty
+        title = 'unexsisting title'
+        expect(Post.search_post(title)).to be_empty
       end
     end
   end
