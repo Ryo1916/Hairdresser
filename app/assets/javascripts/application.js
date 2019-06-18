@@ -86,11 +86,17 @@ $(document).ready(function(){
     .on('turbolinks:load', function () {
       if (!window.formConfig) window.formConfig = {};
       window.formConfig.isDirty = false;
+      window.formConfig.tinymceIsDirty = false;
       window.formConfig.isSubmit = false;
       window.formConfig.confirmMessage = 'Are you sure? All text you wrote will be unsaved.';
 
       $(':input').change(function () {
         if (!window.formConfig.isDirty) window.formConfig.isDirty = true;
+      });
+      // FIXME: it does not working
+      $('#tinymce').change(function () {
+        alert('func working');
+        if (!window.formConfig.tinymceIsDirty) window.formConfig.tinymceIsDirty = true;
       });
       $('form').submit(function () {
         window.formConfig.isSubmit = true;
@@ -98,13 +104,13 @@ $(document).ready(function(){
     })
     // when move to other pages by Turbolinks
     .on("page:before-change turbolinks:before-visit", function () {
-      if (window.formConfig.isDirty) {
+      if (window.formConfig.isDirty || window.formConfig.tinymceIsDirty) {
         return confirm(window.formConfig.confirmMessage);
       }
     })
     // when reload the page or close the page/tab
     .bind("beforeunload", function (event) {
-      if (!window.formConfig.isSubmit && window.formConfig.isDirty) {
+      if (!window.formConfig.isSubmit && (window.formConfig.isDirty || window.formConfig.tinymceIsDirty)) {
         event.returnValue = window.formConfig.confirmMessage;
         return event.returnValue;
       }
