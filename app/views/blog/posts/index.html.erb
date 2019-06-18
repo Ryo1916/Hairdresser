@@ -1,7 +1,26 @@
 <% provide(:page_title, 'Posts') %>
 <% provide(:blog_active, 'active') %>
-<h3 class="text-center my-4">Posts</h3>
 <div class="row">
-  <%= render @posts %>
+  <div class="col-md-9">
+    <h3 class="text-center my-4">Posts</h3>
+  </div>
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="row">
+        <%= render @posts %>
+      </div>
+      <%= will_paginate @posts, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination justify-content-center' %>
+    </div>
+    <div class="col-lg-3 d-lg-block border-left" id="widgets">
+      <div class="search-form mt-4">
+        <%= render 'shared/search' %>
+      </div>
+      <div class="popular-posts-posts mt-4">
+        <%= render 'blog/posts/popular_posts', popular_posts: @popular_posts %>
+      </div>
+      <div class="new-posts mt-4">
+        <%= render 'blog/posts/new_posts', new_posts: @new_posts %>
+      </div>
+    </div>
+  </div>
 </div>
-<%= will_paginate @posts, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination justify-content-center' %>
