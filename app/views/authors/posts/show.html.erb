@@ -9,7 +9,7 @@
     </div>
     <p class="categories mt-2">
       <%== @post.tags.map {
-            |t| link_to t.name, posts_path(tag: t.name), class: 'badge badge-secondary'
+            |t| link_to t.name, authors_posts_path(tag: t.name), class: 'badge badge-secondary'
            }.join(' ') %>
     </p>
     <div class="post-body mt-4"><%== @post.body %></div>
