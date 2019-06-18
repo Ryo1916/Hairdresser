@@ -27,6 +27,9 @@ module Hairdresser
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    # Set default time zone
+    config.time_zone = 'Tokyo'
+
     # Don't generate routes, system test files, stylesheets, javascripts.
     config.generators do |g|
       g.skip_routes false
