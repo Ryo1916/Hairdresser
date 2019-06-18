@@ -59,7 +59,7 @@ RSpec.describe TagsHelper, type: :helper do
       expect(helper.sort_by_created_at(posts: posts)).to eq(Post.order(created_at: :asc))
     end
 
-    it 'returns posts that ordered descending by created date' do
+    xit 'returns posts that ordered descending by created date' do
       expect(helper.sort_by_created_at(posts: posts)).to eq(Post.order(created_at: :desc))
     end
   end
