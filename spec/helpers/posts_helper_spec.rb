@@ -25,7 +25,7 @@ RSpec.describe TagsHelper, type: :helper do
     it 'returns published day' do
       post.publish
       expect(helper.display_day_published(post: post))
-        .to eq("Published #{post.published_at.strftime('%-b %-d, %Y')}")
+        .to eq(post.published_at.strftime('%Y %-b %-d'))
     end
 
     it "returns 'Not published yet.'" do
