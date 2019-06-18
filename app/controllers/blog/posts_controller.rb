@@ -5,7 +5,7 @@ module Blog
     include Common
 
     before_action :set_author, only: %i[index show]
-    before_action :set_most_views, only: %i[index show]
+    before_action :set_popular_posts, only: %i[index show]
 
     impressionist actions: %i[show]
 
@@ -21,8 +21,8 @@ module Blog
 
     private
 
-    def set_most_views
-      @most_views = Post.set_popular_posts
+    def set_popular_posts
+      @popular_posts = Post.popular_posts
     end
   end
 end

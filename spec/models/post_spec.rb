@@ -124,15 +124,15 @@ RSpec.describe Post, type: :model do
       end
     end
 
-    context 'set_popular_posts' do
+    context 'popular_posts' do
       it 'returns an impressionable post' do
         post.publish
-        expect(Post.set_popular_posts)
-          .to eq(Post.published.where('impressions_count > ?', Constants::NOT_VIEWD_POSTS).impressions_count_order.limit(Constants::MAX_DISPLAY_NUM_FOR_MOST_VIEWED_POSTS))
+        expect(Post.popular_posts)
+          .to eq(Post.published.where('impressions_count > ?', Constants::NOT_VIEWD_POSTS).impressions_count_order.limit(Constants::MAX_DISPLAY_NUM_FOR_POPULAR_POSTS))
       end
 
       it 'returns no post' do
-        expect(Post.set_popular_posts).to be_empty
+        expect(Post.popular_posts).to be_empty
       end
     end
 

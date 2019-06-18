@@ -50,8 +50,8 @@ class Post < ApplicationRecord
   scope :list_for_index_page, lambda { |page, tag|
     paginated_post(page).with_tag(tag)
   }
-  scope :set_popular_posts, lambda {
-    published.where('impressions_count > ?', Constants::NOT_VIEWD_POSTS).impressions_count_order.limit(Constants::MAX_DISPLAY_NUM_FOR_MOST_VIEWED_POSTS)
+  scope :popular_posts, lambda {
+    published.where('impressions_count > ?', Constants::NOT_VIEWD_POSTS).impressions_count_order.limit(Constants::MAX_DISPLAY_NUM_FOR_POPULAR_POSTS)
   }
   scope :search_post, ->(title_or_body) { where('(title LIKE ?) or (body LIKE ?)', "%#{title_or_body}%", "%#{title_or_body}%") }
 
