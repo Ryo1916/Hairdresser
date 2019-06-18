@@ -1,0 +1,17 @@
+<div class="new-posts">
+  <span>New Posts</span>
+  <table class="table-borderless" id="new-posts-table">
+    <tbody>
+      <% new_posts.each do |p| %>
+        <tr>
+          <td class="published-date pr-3">
+            <span class="badge badge-secondary"><%= p.published_at.strftime('%Y %-b %-d') %></span>
+          </td>
+          <td>
+            <%= link_to p.title, post_path(p), class: 'text-decoration-none' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
