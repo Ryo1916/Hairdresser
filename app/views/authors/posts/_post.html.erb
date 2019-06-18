@@ -2,7 +2,6 @@
   <td class="titles">
     <%= link_to post.title, authors_post_path(post), class: 'text-decoration-none' %>
   </td>
-  <!-- TODO: カテゴリ名選択したら、そのカテゴリ名だけ表示されるようにする -->
   <td class="categories">
     <%== post.tags.map {
            |t| link_to t.name, authors_posts_path(tag: t.name), class: 'badge badge-secondary'
@@ -28,7 +27,7 @@
     </td>
   <% end %>
   <td>
-    <%= link_to authors_post_path(post), method: :delete, data: { confirm: 'Are you sure?' } do %>
+    <%= link_to authors_post_path(post), method: :delete, data: { confirm: 'Are you sure? This post will be deleted.' } do %>
       <i class="fas fa-trash-alt mr-2" data-toggle="tooltip" data-placement="top" title="Delete"></i>
     <% end %>
   </td>
