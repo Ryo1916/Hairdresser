@@ -136,6 +136,17 @@ RSpec.describe Post, type: :model do
       end
     end
 
+    context 'new_posts' do
+      it 'returns new posts' do
+        posts.map(&:publish)
+        expect(Post.new_posts).to eq(Post.published.order(published_at: :desc).limit(Constants::MAX_DISPLAY_NUM_FOR_NEW_POSTS))
+      end
+
+      it 'returns no post' do
+        expect(Post.new_posts).to be_empty
+      end
+    end
+
     context 'search_post' do
       it 'returns the post that include the search term in the title' do
         title = 'first'

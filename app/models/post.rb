@@ -53,6 +53,9 @@ class Post < ApplicationRecord
   scope :popular_posts, lambda {
     published.where('impressions_count > ?', Constants::NOT_VIEWD_POSTS).impressions_count_order.limit(Constants::MAX_DISPLAY_NUM_FOR_POPULAR_POSTS)
   }
+  scope :new_posts, lambda {
+    published.order(published_at: :desc).limit(Constants::MAX_DISPLAY_NUM_FOR_NEW_POSTS)
+  }
   scope :search_post, ->(title_or_body) { where('(title LIKE ?) or (body LIKE ?)', "%#{title_or_body}%", "%#{title_or_body}%") }
 
   # Friendly ID gem

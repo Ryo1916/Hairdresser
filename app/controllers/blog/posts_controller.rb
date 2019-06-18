@@ -6,6 +6,7 @@ module Blog
 
     before_action :set_author, only: %i[index show]
     before_action :set_popular_posts, only: %i[index show]
+    before_action :set_new_posts, only: %i[index show]
 
     impressionist actions: %i[show]
 
@@ -23,6 +24,10 @@ module Blog
 
     def set_popular_posts
       @popular_posts = Post.popular_posts
+    end
+
+    def set_new_posts
+      @new_posts = Post.new_posts
     end
   end
 end
