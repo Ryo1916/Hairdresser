@@ -117,13 +117,14 @@
   transform: translate3d(0,0,0);
 }
 
-.iframe-container{
+.iframe-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
+  padding-bottom: 52%;
+  // padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
 }
 
-.iframe-container > *{
+.iframe-container > * {
   display: block;
   position: absolute;
   top: 0;
