@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <% tags.zip(category_images).each do |tag, category_image| %>
-      <div class="col-6 col-sm-4 col-md-4 col-lg-4 px-0">
+      <div class="col-6 col-sm-6 col-md-4 col-lg-4 px-0">
         <%= link_to posts_path(tag: tag.name) do %>
           <div class="hovereffect">
             <img src="<%= category_image %>" class="img-fluid" alt="Responsive image">
