@@ -1,49 +1,27 @@
 <div class="about my-5" id="about">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <h4 class="text-center"><%= t('top.about.menu') %></h4>
+      <h4 class="text-center">Get in touch with me</h4>
     </div>
   </div>
-
-  <hr class="light my-4">
-
   <div class="row">
-    <div class="col-md-6 mb-4">
-      <p class="text-center"><%= t('top.contact.menu') %></p>
+    <div class="col-md-12 mb-4">
+      <p class="text-center"><%#= t('top.contact.menu') %></p>
       <div class="text-center my-4">
-        <%= image_tag('author_default.jpg', id: 'author_image', class: 'rounded-circle text-center', alt: 'Author image') %>
+        <%#= image_tag('author_default.jpg', id: 'author_image', class: 'rounded-circle text-center', alt: 'Author image') %>
       </div>
       <p class="text-center"><%= author.name %></p>
       <div class="text-center my-2">
-        <span style="font-size: 1.5rem; margin-right:30px;">
+        <span class="mr-4" style="font-size:3.0rem; color:#3C5A99;">
           <%= icon('fab', 'facebook') %>
         </span>
-        <span style="font-size: 1.5rem; margin-right:30px;">
-          <%= icon('fab', 'twitter') %>
+        <span class="mr-4" style="font-size:3.0rem; color:#38A1F3;">
+          <%= icon('fab', 'twitter-square') %>
         </span>
-        <span style="font-size: 1.5rem; margin-right:30px;">
-          <%= icon('fab', 'instagram') %>
+        <span style="font-size:3.0rem; color:#00c300;">
+          <%= icon('fab', 'line') %>
         </span>
-        <span style="font-size: 1.5rem;">
-          <%= icon('fab', 'youtube') %>
-        </span>
-      </div>
-      <!-- Line@ and Facebook -->
-      <!-- <div class="text-center my-2"> -->
-        <!-- <p>Get in Touch wit me...</p> -->
-        <%#= image_tag('LINE@_APP_typeA.png', id: 'line_at_logo', alt: 'Responsive image', style: 'height:100px;width:100px;') %>
-      <!-- </div> -->
-    </div>
-    <div class="col-md-6">
-      <p class="text-center"><%= t('top.studio.menu') %></p>
-      <div class="iframe-container my-4">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6482.755224633582!2d139.705785!3d35.667703!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9c8f042d354157fa!2sASSORT+HARAJUKU+Harajuku+Hair+Salon!5e0!3m2!1sen!2sjp!4v1554368717051!5m2!1sen!2sjp" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
-      <div class="studios-info" style="margin-top:20px;">
-        <p><%= t('top.studio.name') %></p>
-        <p style="font-size:14px;"><%= t('top.studio.place') %></p>
-        <p style="font-size:14px;">TEL: <%= t('top.studio.tel') %></p>
-        <p style="font-size:14px;"><a href="<%= t('top.studio.url') %>"><%= t('top.studio.url') %></a></p>
+        <%#= image_tag('LINE@_APP_typeA.png', id: 'line_at_logo', alt: 'Responsive image', style: 'height:50px;width:50px;') %>
       </div>
     </div>
   </div>
