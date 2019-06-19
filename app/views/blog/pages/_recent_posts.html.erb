@@ -1,14 +1,13 @@
 <div class="blogs my-5" id="blogs">
-  <div class="row">
+  <div class="row my-4">
     <div class="col-md-6 offset-md-3">
       <h4 class="text-center"><%= t('top.recent_posts.menu') %></h4>
     </div>
   </div>
-  <hr class="light my-4">
   <div class="row">
     <%= render partial: 'blog/posts/post', collection: posts %>
   </div>
   <div class="read-more text-center">
-    <%= link_to t('top.recent_posts.more'), posts_path %>
+    <%= link_to t('top.recent_posts.more'), posts_path, class: 'text-decoration-none' %>
   </div>
 </div>
