@@ -29,6 +29,15 @@ p, p span {
   font-size: 20px;
 }
 
+.card {
+  border-radius: 0;
+}
+
+.card-img-top {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 .categories{
   a {
     font-family: sans-serif;
