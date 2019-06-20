@@ -1,6 +1,7 @@
 <title><%= full_page_title(page_title: yield(:page_title)) %></title>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 <%= csrf_meta_tags %>
+<%= favicon_link_tag asset_path('favicon-4.ico'), rel: 'icon', type: 'image/x-icon' %>
 <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <link rel="prefetch" as="style" onload="this.rel = 'stylesheet'" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap|Playfair+Display&display=swap|Quattrocento+Sans&display=swap|M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese">
 <!-- FIXME: Cannot set end of body tag because tinymce is not working -->
