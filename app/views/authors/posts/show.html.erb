@@ -4,12 +4,12 @@
   <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
     <h1><%= @post.title %></h1>
     <div class="view-counts-and-published-date">
-      <span><%= @post.hits %> views</span>
+      <span><%= @post.impressionist_count %> views</span>
       <span class="float-right"><%= display_day_published(post: @post) %></span>
     </div>
     <p class="categories mt-2">
       <%== @post.tags.map {
-            |t| link_to t.name, posts_path(tag: t.name), class: 'badge badge-secondary'
+            |t| link_to t.name, authors_posts_path(tag: t.name), class: 'badge badge-secondary'
            }.join(' ') %>
     </p>
     <div class="post-body mt-4"><%== @post.body %></div>

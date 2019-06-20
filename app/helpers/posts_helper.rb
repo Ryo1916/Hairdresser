@@ -12,7 +12,7 @@ module PostsHelper
 
   def display_day_published(post:)
     if post.published_at.present?
-      "Published #{post.published_at.strftime('%-b %-d, %Y')}"
+      post.published_at.strftime('%Y %-b %-d')
     else
       'Not published yet.'
     end

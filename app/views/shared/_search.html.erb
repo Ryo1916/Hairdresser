@@ -1,0 +1,6 @@
+<%= form_with url: current_page?(posts_path) ? posts_path : authors_posts_path, method: :get, local: true do |f| %>
+  <div class="form-group has-search">
+    <span class="fa fa-search form-control-feedback"></span>
+    <%= f.text_field :title_or_body, class: 'form-control', placeholder: 'Search' %>
+  </div>
+<% end %>

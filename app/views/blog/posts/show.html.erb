@@ -4,8 +4,8 @@
   <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
     <h1><%= @post.title %></h1>
     <div class="view-counts-and-published-date">
-      <span><%= @post.hits %> views</span>
-      <span class="float-right"><%= display_day_published(post: @post) %></span>
+      <span><%= @post.impressionist_count %> views</span>
+      <span class="float-right">Published at <%= display_day_published(post: @post) %></span>
     </div>
     <p class="categories mt-2">
       <%== @post.tags.map {
@@ -15,11 +15,16 @@
     <p class="social-share-buttons"><%= social_share_button_tag(@post.title, desc: @post.title) %></p>
     <div class="post-body mt-4"><%== @post.body %></div>
     <div class="next-and-previous mt-4 pb-4 border-bottom">
-      <span><%= link_to('Next', @post.next) if @post.next.present? %></span>
-      <span class="float-right"><%= link_to('Previous', @post.previous) if @post.previous.present? %></span>
+      <span><%= link_to('Next', @post.next, class: 'text-decoration-none') if @post.next.present? %></span>
+      <span class="float-right"><%= link_to('Previous', @post.previous, class: 'text-decoration-none') if @post.previous.present? %></span>
     </div>
     <div id="disqus_thread" class="my-4"></div>
-    <%= render 'blog/posts/most_viewed', most_views: @most_views %>
+    <div class="popular-posts">
+      <%= render 'blog/posts/popular_posts', popular_posts: @popular_posts %>
+    </div>
+    <div class="new-posts mt-4">
+      <%= render 'blog/posts/new_posts', new_posts: @new_posts %>
+    </div>
   </div>
 </div>
 

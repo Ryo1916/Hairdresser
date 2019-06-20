@@ -5,22 +5,29 @@ module Blog
     include Common
 
     before_action :set_author, only: %i[index show]
-    before_action :set_most_views, only: %i[index show]
+    before_action :set_popular_posts, only: %i[index show]
+    before_action :set_new_posts, only: %i[index show]
+
+    impressionist actions: %i[show]
 
     def index
-      @posts = Post.published.list_for_authors_index_page(params[:page], params[:tag])
+      @posts = Post.published.search_post(params[:title_or_body]).list_for_index_page(params[:page], params[:tag])
     end
 
     def show
       @post = Post.friendly.find(params[:id])
       @post.published ? @post : redirect_to(posts_path, flash: { alert: 'This post is not published.' })
-      @post.punch(request)
+      impressionist(@post, nil, unique: [:session_hash])
     end
 
     private
 
-    def set_most_views
-      @most_views = Post.most_hit.limit(Constants::MAX_DISPLAY_NUM_FOR_MOST_VIEWED_POSTS)
+    def set_popular_posts
+      @popular_posts = Post.popular_posts
+    end
+
+    def set_new_posts
+      @new_posts = Post.new_posts
     end
   end
 end

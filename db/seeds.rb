@@ -18,7 +18,8 @@ Post.create!( title:            "How to use seeds.rb?",
               slug:             "",
               author_id:        1,
               published:        true,
-              published_at:     Time.zone.now )
+              published_at:     Time.zone.now,
+              impressions_count: 2 )
 
 # default image
 Image.create!( alt: 'just the default image.',
@@ -33,7 +34,8 @@ Image.create!( alt: 'just the default image.',
                 slug: "",
                 author_id: 1,
                 published: true,
-                published_at: Faker::Time.between(DateTime.now - 365, DateTime.now))
+                published_at: Faker::Time.between(DateTime.now - 365, DateTime.now),
+                impressions_count: 0 )
 end
 
 # categories

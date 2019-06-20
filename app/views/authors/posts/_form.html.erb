@@ -9,20 +9,17 @@
       </ul>
     </div>
   <% end %>
-  <div class="row my-4">
+  <div class="row mt-4">
     <div class="col-md-6 offset-md-3">
       <% if post.new_record? %>
-        <h4 class="new-post text-center">New post</h4>
+        <h4 class="new-post text-center">New Post</h4>
       <% else %>
-        <h4 class="edit-post text-center">
-          <b>Edit</b>
-          <span class="thin-text"><%= @post.title %></span>
-        </h4>
+        <h4 class="edit-post text-center">Edit Post</h4>
       <% end %>
     </div>
   </div>
-  <div class="row my-4">
-    <div class="col-md-8 offset-md-2">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
       <div class="form-group">
         <div class="field my-3">
           <%= form.label :title %>
@@ -46,7 +43,7 @@
         </div>
         <div class="actions">
           <%= form.submit "Save", class: 'btn btn-success' %>
-          <%= link_to('Back', post.persisted? ? authors_post_path(post) : authors_posts_path, class: 'btn btn-secondary', data: { confirm: 'Are you sure? All text you wrote will be unsaved.' }) %>
+          <%= link_to 'Back', post.persisted? ? authors_post_path(post) : authors_posts_path, class: 'btn btn-secondary' %>
         </div>
       </div>
     </div>

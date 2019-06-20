@@ -8,7 +8,7 @@ AllCops:
     - 'vendor/**/*'
     - 'spec/fixtures/**/*'
     - 'tmp/**/*'
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.5.0
 
 # head comments at class and module
 Documentation:

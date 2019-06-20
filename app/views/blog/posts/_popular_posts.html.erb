@@ -1,0 +1,17 @@
+<div class="popular-posts">
+  <span>Popular Posts</span>
+  <table class="table-borderless" id="popular-posts-table">
+    <tbody>
+      <% popular_posts.each do |p| %>
+        <tr>
+          <td class="view-points pr-3">
+            <span class="badge badge-secondary"><%= p.impressions_count %> views</span>
+          </td>
+          <td>
+            <%= link_to p.title, post_path(p), class: 'text-decoration-none' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -8,6 +8,6 @@ module Common
   end
 
   def set_tags
-    @tags = ActsAsTaggableOn::Tag.all
+    @tags = ActsAsTaggableOn::Tag.order(taggings_count: :desc)
   end
 end

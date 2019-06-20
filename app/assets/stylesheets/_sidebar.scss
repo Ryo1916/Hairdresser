@@ -1,0 +1,19 @@
+#sidebar-wrapper {
+  min-height: 100vh;
+  padding: 0 !important;
+  margin: 0 !important;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 56px;
+  }
+
+  .fas {
+    margin-right: 10px;
+  }
+}

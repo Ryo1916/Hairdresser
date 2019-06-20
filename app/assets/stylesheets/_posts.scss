@@ -1,3 +1,21 @@
+.posts.index {
+  #widgets {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 56px;
+  }
+
+  #popular-posts-table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+  }
+
+  #new-posts-table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+  }
+}
+
 .posts.edit, .posts.new {
   .card {
     .card-body {
@@ -38,7 +56,7 @@
   .post-body p {
     font-family: 'Playfair Display', 'M PLUS Rounded 1c', sans-serif !important;
   }
-  .most-viewed {
+  .popular-posts {
     p {
       font-family: sans-serif;
     }
@@ -46,6 +64,21 @@
 }
 
 #posts-table {
-  width: 90%;
+  width: 100%;
   margin: 0 auto !important;
+
+  th {
+    margin-right: 10px;
+    font-weight: normal;
+    font-size: 14px;
+  }
+
+  td {
+    margin-right: 10px;
+    font-size: 14px;
+  }
+
+  .titles {
+    font-size: 16px;
+  }
 }

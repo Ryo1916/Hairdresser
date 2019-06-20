@@ -4,20 +4,21 @@
 #
 # Table name: posts
 #
-#  id           :bigint(8)        not null, primary key
-#  title        :string(255)
-#  body         :text(65535)
-#  slug         :string(255)
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  author_id    :integer
-#  published    :boolean          default(FALSE)
-#  published_at :datetime
+#  id                :bigint(8)        not null, primary key
+#  title             :string
+#  body              :text
+#  slug              :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  author_id         :integer
+#  published         :boolean          default(FALSE)
+#  published_at      :datetime
+#  impressions_count :integer          default(0)
 #
 
 class Post < ApplicationRecord
   acts_as_taggable # Alias for acts_as_taggable_on :tags
-  acts_as_punchable
+  is_impressionable counter_cache: true # to get the count of impressions
 
   # association
   belongs_to :author
@@ -29,6 +30,7 @@ class Post < ApplicationRecord
   # scopes
   scope :published, -> { where(published: true) }
   scope :descending_order, -> { order(created_at: :desc) }
+  scope :impressions_count_order, -> { order(impressions_count: :desc) }
   scope :recent_paginated_post, lambda { |page|
     descending_order.paginate(
       page: page,
@@ -45,9 +47,16 @@ class Post < ApplicationRecord
   scope :list_for_top_page, lambda { |page, tag|
     recent_paginated_post(page).with_tag(tag)
   }
-  scope :list_for_authors_index_page, lambda { |page, tag|
+  scope :list_for_index_page, lambda { |page, tag|
     paginated_post(page).with_tag(tag)
   }
+  scope :popular_posts, lambda {
+    published.where('impressions_count > ?', Constants::NOT_VIEWD_POSTS).impressions_count_order.limit(Constants::MAX_DISPLAY_NUM_FOR_POPULAR_POSTS)
+  }
+  scope :new_posts, lambda {
+    published.order(published_at: :desc).limit(Constants::MAX_DISPLAY_NUM_FOR_NEW_POSTS)
+  }
+  scope :search_post, ->(title_or_body) { where('(title LIKE ?) or (body LIKE ?)', "%#{title_or_body}%", "%#{title_or_body}%") }
 
   # Friendly ID gem
   extend FriendlyId

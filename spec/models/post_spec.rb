@@ -1,10 +1,26 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: posts
+#
+#  id                :bigint(8)        not null, primary key
+#  title             :string
+#  body              :text
+#  slug              :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  author_id         :integer
+#  published         :boolean          default(FALSE)
+#  published_at      :datetime
+#  impressions_count :integer          default(0)
+#
+
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   let!(:author) { create(:author) }
-  let!(:post) { create(:post, author: author) }
+  let!(:post) { create(:post, title: 'first post', body: 'this is the my first post', author: author, impressions_count: 2) }
   let!(:posts) { create_list(:post, 5, author: author) }
 
   PAGINATED_QUERY = 2
@@ -36,6 +52,13 @@ RSpec.describe Post, type: :model do
     context 'descending_order' do
       it 'returns descending ordered posts' do
         expect(Post.descending_order).to eq(Post.order(created_at: :desc))
+      end
+    end
+
+    context 'impressions_count_order' do
+      it 'returns posts ordered by impressions counts' do
+        post.publish
+        expect(Post.impressions_count_order).to eq(Post.order(impressions_count: :desc))
       end
     end
 
@@ -84,20 +107,68 @@ RSpec.describe Post, type: :model do
       end
     end
 
-    context 'list_for_authors_index_page' do
-      it 'returns posts for authors index page' do
-        expect(Post.list_for_authors_index_page(PAGINATED_QUERY, EMPTY_TAG))
+    context 'list_for_index_page' do
+      it 'returns posts for index page' do
+        expect(Post.list_for_index_page(PAGINATED_QUERY, EMPTY_TAG))
           .to eq(Post.paginated_post(PAGINATED_QUERY).with_tag(EMPTY_TAG))
       end
 
-      it 'returns posts for authors index page with the specified tag' do
-        expect(Post.list_for_authors_index_page(PAGINATED_QUERY, EXISTING_TAG))
+      it 'returns posts for index page with the specified tag' do
+        expect(Post.list_for_index_page(PAGINATED_QUERY, EXISTING_TAG))
           .to eq(Post.paginated_post(PAGINATED_QUERY).with_tag(EXISTING_TAG))
       end
 
       it "returns no post when the specified tag doesn't exist" do
-        expect(Post.list_for_authors_index_page(PAGINATED_QUERY, UNEXISTING_TAG))
+        expect(Post.list_for_index_page(PAGINATED_QUERY, UNEXISTING_TAG))
           .to eq(Post.paginated_post(PAGINATED_QUERY).with_tag(UNEXISTING_TAG))
+      end
+    end
+
+    context 'popular_posts' do
+      it 'returns an impressionable post' do
+        post.publish
+        expect(Post.popular_posts)
+          .to eq(Post.published.where('impressions_count > ?', Constants::NOT_VIEWD_POSTS).impressions_count_order.limit(Constants::MAX_DISPLAY_NUM_FOR_POPULAR_POSTS))
+      end
+
+      it 'returns no post' do
+        expect(Post.popular_posts).to be_empty
+      end
+    end
+
+    context 'new_posts' do
+      it 'returns new posts' do
+        posts.map(&:publish)
+        expect(Post.new_posts).to eq(Post.published.order(published_at: :desc).limit(Constants::MAX_DISPLAY_NUM_FOR_NEW_POSTS))
+      end
+
+      it 'returns no post' do
+        expect(Post.new_posts).to be_empty
+      end
+    end
+
+    context 'search_post' do
+      it 'returns the post that include the search term in the title' do
+        title = 'first'
+        expect(Post.search_post(title))
+          .to eq(Post.where('(title LIKE ?) or (body LIKE ?)', "%#{title}%", "%#{title}%"))
+      end
+
+      it ' returns the post that include the search term in the body' do
+        body = 'this is the my first'
+        expect(Post.search_post(body))
+          .to eq(Post.where('(title LIKE ?) or (body LIKE ?)', "%#{body}%", "%#{body}%"))
+      end
+
+      it 'returns all posts when form is empty' do
+        empty = ''
+        expect(Post.search_post(empty))
+          .to eq(Post.where('(title LIKE ?) or (body LIKE ?)', "%#{empty}%", "%#{empty}%"))
+      end
+
+      it 'returns no post when there is no result' do
+        title = 'unexsisting title'
+        expect(Post.search_post(title)).to be_empty
       end
     end
   end

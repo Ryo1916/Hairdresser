@@ -29,9 +29,26 @@ p, p span {
   font-size: 20px;
 }
 
+.card {
+  border-radius: 0;
+}
+
+.card-img-top {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 .categories{
   a {
     font-family: sans-serif;
     font-weight: lighter;
   }
+}
+
+.fa-eye, .fa-eye-slash {
+  color: #9FC820;
+}
+
+.fa-trash-alt {
+  color: #C60F13;
 }

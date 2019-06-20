@@ -1,40 +1,20 @@
-<div class="map" id="mystudios" style="margin:40px 20px;">
+<div class="map my-5" id="mystudios">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <h4 style="text-align:center; margin:20px 0px;">
-        My Studios
-      </h4>
+      <h4 class="text-center mt-3"><%= t('top.studio.menu') %></h4>
     </div>
   </div>
-
-  <hr class="light my-4">
-
   <div class="row">
-    <div class="col-md-6">
-      <p style="text-align:center;">Assort Harajuku</p>
-      <div class="iframe-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6482.755224633582!2d139.705785!3d35.667703!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9c8f042d354157fa!2sASSORT+HARAJUKU+Harajuku+Hair+Salon!5e0!3m2!1sen!2sjp!4v1554368717051!5m2!1sen!2sjp" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <div class="col-md-12 px-0">
+      <div class="iframe-container my-4">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6482.755224633582!2d139.705785!3d35.667703!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9c8f042d354157fa!2sASSORT+HARAJUKU+Harajuku+Hair+Salon!5e0!3m2!1sen!2sjp!4v1554368717051!5m2!1sen!2sjp" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
       </div>
-      <div class="studios-info" style="margin-top:20px;">
-        <p style="font-size:14px;">6-7-14 NK Bldg. 2F, Jingumae, Shibuya-ku, Tokyo 150-0001</p>
-        <p style="font-size:14px;">TEL: +81-3-6712-6945</p>
+      <div class="studios-info mt-2 ml-4">
+        <p><%= t('top.studio.name') %></p>
+        <p style="font-size:14px;"><%= t('top.studio.place') %></p>
+        <p style="font-size:14px;">TEL: <%= t('top.studio.tel') %></p>
+        <p style="font-size:14px;"><a href="<%= t('top.studio.url') %>"><%= t('top.studio.url') %></a></p>
       </div>
-    </div>
-    <!-- Assort HongKong -->
-    <!-- <div class="col-md-6">
-      <p style="text-align:center;">Hong Kong</p>
-      <div class="iframe-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7384.030297060157!2d114.18145200000001!3d22.277416!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x29e5ed82d561c428!2sAssort+International+Hair+Salon+Hong+Kong!5e0!3m2!1sen!2shk!4v1545464187123" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
-      <div class="studios-info" style="margin-top:20px;">
-        <p style="font-size:14px;">LOCATED IN THE HEART OF CAUSEWAY BAY, HONG KONG, NEAR TIMES SQUARE</p>
-        <p style="font-size:14px;">Please use [EXIT A] for the nearest exit</p>
-        <p style="font-size:14px;">
-          18/F., Nam Hing Fong <br>
-          39 Yiu Wah Street, Causeway Bay, Hong Kong
-        </p>
-        <p style="font-size:14px;">(+852) 2836-3021</p>
-      </div> -->
     </div>
   </div>
 </div>
