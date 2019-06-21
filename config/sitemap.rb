@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = 'http://www.example.com'
+SitemapGenerator::Sitemap.default_host = 'https://hairdresser-yuta.herokuapp.com'
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
@@ -26,4 +26,10 @@ SitemapGenerator::Sitemap.create do
   #   Article.find_each do |article|
   #     add article_path(article), :lastmod => article.updated_at
   #   end
+
+  add posts_path
+
+  Post.published.each do |p|
+    add post_path(p.friendly_id), lastmod: p.updated_at
+  end
 end
