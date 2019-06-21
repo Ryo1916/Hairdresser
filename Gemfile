@@ -54,7 +54,8 @@ gem 'mini_magick', '4.9.2'
 gem 'devise', '4.6.2'
 
 # seo
-gem 'meta-tags', '2.11.1'
+gem 'meta-tags',         '2.11.1'
+gem 'sitemap_generator', '6.0.2'
 
 # others
 gem 'faker',     '1.7.3'
