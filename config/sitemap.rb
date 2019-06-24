@@ -1,35 +1,31 @@
 # frozen_string_literal: true
 
-# Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = 'https://hairdresser-yuta.herokuapp.com'
 
 SitemapGenerator::Sitemap.create do
-  # Put links creation logic here.
-  #
-  # The root path '/' and sitemap index file are added automatically for you.
-  # Links are added to the Sitemap in the order they are specified.
-  #
-  # Usage: add(path, options={})
-  #        (default options are used if you don't specify)
-  #
-  # Defaults: :priority => 0.5, :changefreq => 'weekly',
-  #           :lastmod => Time.now, :host => default_host
-  #
-  # Examples:
-  #
-  # Add '/articles'
-  #
-  #   add articles_path, :priority => 0.7, :changefreq => 'daily'
-  #
-  # Add all articles:
-  #
-  #   Article.find_each do |article|
-  #     add article_path(article), :lastmod => article.updated_at
-  #   end
+  { en: :english, ja: :japanese }.each do |locale, name|
+    group(sitemaps_path: "sitemaps/#{locale}/", filename: name) do
+      add root_path(locale: locale), changefreq: 'daily'
+      add posts_path(locale: locale), changefreq: 'daily'
 
-  add posts_path
-
-  Post.published.each do |p|
-    add post_path(p.friendly_id), lastmod: p.updated_at
+      Post.published.each do |p|
+        add post_path(locale: locale, id: p.friendly_id), lastmod: p.updated_at, changefreq: 'daily'
+      end
+    end
   end
+end
+
+SitemapGenerator::Sitemap.create_index = true
+
+if Rails.env.production?
+  SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new(
+    fog_provider: 'AWS',
+    aws_access_key_id: Rails.application.secrets.access_key_id,
+    aws_secret_access_key: Rails.application.secrets.secret_access_key,
+    fog_directory: Rails.application.secrets.bucket,
+    fog_region: Rails.application.secrets.region
+  )
+  SitemapGenerator::Sitemap.public_path = 'tmp/'
+  SitemapGenerator::Sitemap.sitemaps_host = "https://s3-#{Rails.application.secrets.region}.amazonaws.com/#{Rails.application.secrets.bucket}"
+  SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 end
