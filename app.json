@@ -1,12 +1,18 @@
 {
-  "name": "hairdresser-yuta",
-  "description": "this is for heroku pipeline.",
-  "env": {
-  },
   "addons": [
     "heroku-postgresql:hobby-dev"
   ],
+  "buildpacks": [
+
+  ],
+  "description": "this is for heroku pipeline.",
+  "env": {
+  },
+  "formation": {
+  },
+  "name": "Hairdresser",
   "scripts": {
-   "postdeploy": "bundle exec rails db:migrate"
-  }
+    "postdeploy": "bundle exec rails db:migrate"
+  },
+  "stack": "heroku-18"
 }
