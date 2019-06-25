@@ -1,12 +1,16 @@
 {
-  "name": "hairdresser-yuta",
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+    "papertrail",
+    "sendgrid"
+  ],
   "description": "this is for heroku pipeline.",
   "env": {
+    "RAILS_ENV": "production"
   },
-  "addons": [
-    "heroku-postgresql:hobby-dev"
-  ],
+  "name": "hairdresser-yuta",
   "scripts": {
-   "postdeploy": "bundle exec rails db:migrate"
-  }
+    "postdeploy": "bundle exec rails db:migrate"
+  },
+  "stack": "heroku-18"
 }
