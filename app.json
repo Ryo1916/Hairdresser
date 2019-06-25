@@ -1,0 +1,12 @@
+{
+  "name": "hairdresser-yuta",
+  "description": "this is for heroku pipeline.",
+  "env": {
+  },
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "scripts": {
+   "postdeploy": "bundle exec rails db:migrate"
+  }
+}
