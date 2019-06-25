@@ -6,8 +6,8 @@
   ],
   "description": "this is for heroku pipeline.",
   "env": {
-    "RAILS_MASTER_KEY": {
-      "generator": "secret"
+    "GITHUB_AUTH_TOKEN": {
+      "required": true
     }
   },
   "name": "hairdresser-yuta",
