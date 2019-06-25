@@ -6,7 +6,9 @@
   ],
   "description": "this is for heroku pipeline.",
   "env": {
-    "RAILS_ENV": "production"
+    "RAILS_MASTER_KEY": {
+      "generator": "secret"
+    }
   },
   "name": "hairdresser-yuta",
   "scripts": {
