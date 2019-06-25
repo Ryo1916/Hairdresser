@@ -6,6 +6,9 @@
   ],
   "description": "this is for heroku pipeline.",
   "env": {
+    "GITHUB_AUTH_TOKEN": {
+      "required": true
+    }
   },
   "name": "hairdresser-yuta",
   "scripts": {
