@@ -57,6 +57,9 @@ gem 'devise', '4.6.2'
 gem 'meta-tags',         '2.11.1'
 gem 'sitemap_generator', '6.0.2'
 
+# surveillance
+gem 'rollbar', '2.20.2'
+
 # others
 gem 'faker',     '1.7.3'
 gem 'rails-erd', '1.5.2'
