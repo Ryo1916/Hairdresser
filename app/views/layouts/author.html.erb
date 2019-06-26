@@ -14,7 +14,7 @@
     <main>
       <div class="container-fluid <%= controller_name %> <%= action_name %> mt-0">
         <div class="row">
-          <%= render 'authors/shared/sidebar' if author_signed_in? %>
+          <%= render 'authors/shared/sidebar' %>
           <div class="col-lg-10 col-12">
             <%= yield %>
           </div>

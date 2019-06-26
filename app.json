@@ -1,16 +1,15 @@
 {
   "addons": [
-
+    "heroku-postgresql:hobby-dev",
+    "papertrail",
+    "sendgrid"
   ],
-  "buildpacks": [
-
-  ],
+  "description": "this is for heroku pipeline.",
   "env": {
   },
-  "formation": {
-  },
-  "name": "Hairdresser",
+  "name": "hairdresser-yuta",
   "scripts": {
+    "postdeploy": "bundle exec rails db:migrate"
   },
   "stack": "heroku-18"
 }

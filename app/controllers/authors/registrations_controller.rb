@@ -2,6 +2,7 @@
 
 module Authors
   class RegistrationsController < Devise::RegistrationsController
+    before_action :configure_account_create_params, only: %i[new create]
     before_action :configure_account_update_params, only: %i[update]
     before_action :first_author_registered?, only: %i[new create]
 
@@ -10,6 +11,10 @@ module Authors
     end
 
     private
+
+    def configure_account_create_params
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    end
 
     def configure_account_update_params
       devise_parameter_sanitizer.permit(:account_update, keys: [:name])
@@ -20,7 +25,7 @@ module Authors
     end
 
     def first_author_registered?
-      return unless Author.first.persisted?
+      return unless Author.count == 1
 
       if author_signed_in?
         redirect_to root_path
