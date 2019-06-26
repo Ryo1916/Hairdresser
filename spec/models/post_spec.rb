@@ -51,7 +51,8 @@ RSpec.describe Post, type: :model do
 
     context 'descending_order' do
       it 'returns descending ordered posts' do
-        expect(Post.descending_order).to eq(Post.order(created_at: :desc))
+        posts.map(&:publish)
+        expect(Post.descending_order).to eq(Post.order(published_at: :desc))
       end
     end
 

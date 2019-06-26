@@ -29,7 +29,7 @@ class Post < ApplicationRecord
 
   # scopes
   scope :published, -> { where(published: true) }
-  scope :descending_order, -> { order(created_at: :desc) }
+  scope :descending_order, -> { order(published_at: :desc) }
   scope :impressions_count_order, -> { order(impressions_count: :desc) }
   scope :recent_paginated_post, lambda { |page|
     descending_order.paginate(
