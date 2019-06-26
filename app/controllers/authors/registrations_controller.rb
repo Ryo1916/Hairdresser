@@ -20,7 +20,7 @@ module Authors
     end
 
     def first_author_registered?
-      return unless Author.first.persisted?
+      return if Author.count == 1
 
       if author_signed_in?
         redirect_to root_path
