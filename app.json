@@ -6,6 +6,9 @@
   ],
   "description": "this is for heroku pipeline.",
   "env": {
+    "RAILS_MASTER_KEY": {
+      "required": true
+    }
   },
   "name": "hairdresser-yuta",
   "scripts": {
