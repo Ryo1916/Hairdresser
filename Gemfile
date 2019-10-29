@@ -51,7 +51,7 @@ gem 'carrierwave', '1.2.3'
 gem 'mini_magick', '4.9.2'
 
 # account
-gem 'devise', '4.6.2'
+gem 'devise', '4.7.1'
 
 # seo
 gem 'meta-tags',         '2.11.1'
