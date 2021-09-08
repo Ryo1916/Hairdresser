@@ -84,7 +84,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'better_errors',         '2.5.0'
+  gem 'better_errors',         '2.8.0'
   gem 'binding_of_caller',     '0.8.0'
   gem 'letter_opener_web',     '1.3.4'
   gem 'listen',                '3.1.5'
